@@ -4,8 +4,6 @@ infos=data;
 affiche_tournoi();
 } // A suivre...
 
-
-
 function ajoute_participant() {if ((infos.results.length !== 0) || ($("#participant").val()==="")) return;
 if (infos.teams.length===0) {
 infos.teams.push([$("#participant").val(),null]);
