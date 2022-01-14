@@ -6,34 +6,49 @@
     <div class="form-row mb-4">
         <div class="col">
             <!-- First name -->
-            <input type="text" name="prenom" ngModel="" class="form-control" placeholder="Prénom">
+            <input type="text" name="prenom" #prenomAct="ngModel" [(ngModel)]="user.prenom" required class="form-control" placeholder="Prénom">
+            <div class="text-danger" [hidden]="prenomAct.valid">
+                <p>Saissez votre prénom</p>
+            </div>
         </div>
         <div class="col">
             <!-- Last name -->
-            <input type="text" name="nom" ngModel="" class="form-control" placeholder="Nom de famille">
+            <input type="text" name="nom" #nomAct="ngModel" [(ngModel)]="user.nom" required class="form-control" placeholder="Nom de famille">
+            <div class="text-danger" [hidden]="nomAct.valid">
+                <p>Saissez votre nom</p>
+            </div>
         </div>
     </div>
     
     <!-- Login -->
-    <input type="text" name="login" ngModel="" class="form-control mb-4" placeholder="Login">
+    <input type="text" name="login" #loginAct="ngModel" [(ngModel)]="user.login" required class="form-control mb-4" placeholder="Login">
+    <div class="text-danger" [hidden]="loginAct.valid">
+        <p>Saissez votre login</p>
+    </div>
 
     <!-- E-mail -->
-    <input type="email" name="email" ngModel="" class="form-control mb-2" placeholder="E-mail">
+    <input type="email" name="email" #emailAct="ngModel" [(ngModel)]="user.email" required class="form-control mb-2" placeholder="E-mail">
+    <div class="text-danger" [hidden]="emailAct.valid">
+        <p>Saissez votre email</p>
+    </div>
 
     <!-- E-mail -->
-    <input type="email" name="emailConfirme" ngModel="" class="form-control" placeholder="Confirmer e-mail">
-    <small id="msgConfirmationEmail" class="form-text text-muted mb-4">
-        Veuillez confirmer votre adresse e-mail
-    </small>
+    <input type="email" name="emailConfirme" #emailConfirmeAct="ngModel" [(ngModel)]="user.emailConfirme" required class="form-control mb-4" placeholder="Confirmer e-mail">
+    <div class="text-danger" [hidden]="emailConfirmeAct.valid">
+        <p>Confirmez l'email</p>
+    </div>
 
     <!-- Password -->
-    <input type="password" name="mdp" ngModel="" class="form-control mb-2" placeholder="Mot de passe" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    <input type="password" name="mdp" #mdpAct="ngModel" [(ngModel)]="user.mdp" required  class="form-control mb-2" placeholder="Mot de passe" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    <div class="text-danger" [hidden]="mdpAct.valid">
+        <p>Saissez votre mot de passe</p>
+    </div>
     
     <!-- Password -->
-    <input type="password" name="mdpConfirme" ngModel="" class="form-control" placeholder="Confirmer mot de passe" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-    <small id="msgConfirmationMdp" class="form-text text-muted mb-4">
-        Veuillez confirmer votre mot de passe
-    </small>
+    <input type="password" name="mdpConfirme" #mdpConfirmeAct="ngModel" [(ngModel)]="user.mdpConfirme" required  class="form-control mb-4" placeholder="Confirmer mot de passe" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    <div class="text-danger" [hidden]="mdpConfirmeAct.valid">
+        <p>Confirmez le mot de passe</p>
+    </div>
 
     <div class="form-row mb-4">
         <div class="col">
@@ -43,12 +58,15 @@
         </div>
         <div class="col">
             <!-- Date de naissance -->
-            <input type="date" name="naissance" ngModel="" class="form-control" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+            <input type="date" name="naissance" #naissanceAct="ngModel" [(ngModel)]="user.naissance" required class="form-control" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+            <div class="text-danger" [hidden]="naissanceAct.valid">
+                <p>Saissez votre date de naissance</p>
+            </div>
         </div>
     </div>
 
     <!-- Sign up button -->
-    <button class="btn btn-info my-4 btn-block" type="submit">S'inscrire</button>
+    <button [disabled]="!utilisateur.form.valid" class="btn btn-info my-4 btn-block" type="submit">S'inscrire</button>
 
 </form>
 <!-- Default form register -->
