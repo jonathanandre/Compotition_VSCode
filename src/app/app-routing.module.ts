@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConnexionComponent } from './connexion/connexion.component';
+import { TournoiComponent } from './tournoi/tournoi.component';
 
 const routes: Routes = [
-  
+  {path: 'tournoi', component: TournoiComponent}
 ];
 
 @NgModule({
