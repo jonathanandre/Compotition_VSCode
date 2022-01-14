@@ -27,7 +27,7 @@ export class InscriptionComponent implements OnInit {
       
     }
     */
-    this.http.post('http://localhost:8087/inscription', user).subscribe({
+    this.http.post('http://localhost:8087/utilisateur/inscription', user).subscribe({
       next : (data)=> {console.log(data); this.dialogRef.close()},
       error : (err)=> {console.log(err)}
     })
