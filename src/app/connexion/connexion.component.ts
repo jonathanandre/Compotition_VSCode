@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-connexion',
@@ -7,12 +9,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
-  user: any;
+  utilisateur: any;
   msg: any;
 
-  constructor( private router: Router) { }
+  constructor(private dialogRef: MatDialogRef<ConnexionComponent>, private httpClient: HttpClient) { }
 
   ngOnInit(): void {
   }
 
+  seConnecter(value: any) {
+    this.httpClient.post('http://localhost:8087/connexion', value).subscribe({
+      next:(data)=> {console.log(data); 
+        this.utilisateur = data;
+        if(this.utilisateur== null) {
+          this.msg = "login ou mdp incorrect";
+        } else {
+          localStorage.setItem('utilisateur', JSON.stringify(this.utilisateur));
+          // this.router.navigateByUrl('event');
+        }
+        },
+        error: (err)=> {console.log(err)}
+    })
+  }
 }

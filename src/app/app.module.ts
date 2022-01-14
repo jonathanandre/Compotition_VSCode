@@ -7,18 +7,26 @@ import { TournoiComponent } from './tournoi/tournoi.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ProfilComponent } from './profil/profil.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     TournoiComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    ProfilComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

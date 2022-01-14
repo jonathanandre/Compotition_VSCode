@@ -1,10 +1,22 @@
 <p>connexion works!</p>
 
+
 <div>
-    <form >
-        <input type="text" name="login" placeholder="login" ngModel="">
-        <input type="text" name="mdp" placeholder="mot de passe" ngModel="">
-        <button class="btn btn-secondary" type="submit"> Valider</button>
-    </form>
-    
+    <!-- Default form login -->
+<form #connexion="ngForm" (ngSubmit)="seConnecter(connexion.value)" class="text-center border border-light p-5" >
+
+    <p class="h4 mb-4">Connexion</p>
+
+    <!-- Email -->
+    <input type="text" name="login" class="form-control mb-4" placeholder="Login" ngModel="">
+
+    <!-- Password -->
+    <input type="password" name="mdp" class="form-control mb-4" placeholder="Password" ngModel="">
+
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block my-4" type="submit">Valider</button>
+
+</form>
+{{ msg }}
+
 </div>
