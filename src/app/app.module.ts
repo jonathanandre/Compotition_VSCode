@@ -11,7 +11,8 @@ import { ProfilComponent } from './profil/profil.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {MatIconModule} from '@angular/material/icon'; 
+import {MatIconModule} from '@angular/material/icon';
+import { MonProfilComponent } from './mon-profil/mon-profil.component'; 
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {MatIconModule} from '@angular/material/icon';
     TournoiComponent,
     ConnexionComponent,
     ProfilComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    MonProfilComponent
   ],
   imports: [
     BrowserModule,
