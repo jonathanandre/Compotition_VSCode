@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-connexion',
@@ -10,7 +11,7 @@ export class ConnexionComponent implements OnInit {
   user: any;
   msg: any;
 
-  constructor( private router: Router) { }
+  constructor(private dialogRef: MatDialogRef<ConnexionComponent>) { }
 
   ngOnInit(): void {
   }
