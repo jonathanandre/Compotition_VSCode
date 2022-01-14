@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,10 @@ export class AppComponent {
 
   callMyConnexion() {
     const myDialog = this.dialog.open(ConnexionComponent);
+  }
+
+  callInscription() {
+    const myDialog = this.dialog.open(InscriptionComponent);
   }
 
 }

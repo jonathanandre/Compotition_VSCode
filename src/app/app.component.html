@@ -6,10 +6,12 @@
     <ul class="nav peach-gradient py-4 mb-4 mb-md-0 font-weight-bold z-depth-1 nav-fill w-100">
       <li class="nav-item"><a class="nav-link active white-text" routerLink="">Classement public</a></li>
       <li class="nav-item"><a class="nav-link white-text" routerLink="">Classement des paris</a></li>
-      <li class="nav-item"><button class="btn btn-primary btn-deep-orange" (click)="callMyConnexion()" >
+      <li class="nav-item"><button class="btn btn-primary btn-deep-orange" (click)="callMyConnexion()">
         se connecter
       </button></li>
-      <li class="nav-item"><button class="btn btn-primary btn-deep-orange" >s'inscrire</button></li>
+      <li class="nav-item"><button mat-fab color="primary" (click)="callInscription()">
+        S'inscrire
+      </button></li>
     </ul>
   </div>
 
