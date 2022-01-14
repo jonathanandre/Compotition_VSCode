@@ -6,27 +6,14 @@
     <ul class="nav peach-gradient py-4 mb-4 mb-md-0 font-weight-bold z-depth-1 nav-fill w-100">
       <li class="nav-item"><a class="nav-link active white-text" routerLink="">Classement public</a></li>
       <li class="nav-item"><a class="nav-link white-text" routerLink="">Classement des paris</a></li>
-      <li class="nav-item"><a class="nav-link white-text" routerLink="">Se connecter</a></li>
-      <li class="nav-item"><a class="nav-link white-text" routerLink="">S'incrire</a></li>
+      <li class="nav-item"><button class="btn btn-primary btn-deep-orange" (click)="callMyConnexion()">
+        se connecter
+      </button></li>
+      <li class="nav-item"><button class="btn btn-primary btn-deep-orange" (click)="callInscription()">
+        S'inscrire
+      </button></li>
     </ul>
   </div>
-  
 
-
-  <div class="row">
-    <div class="col-sm-6 text-center mt-3">
-      
-      <button mat-fab color="primary" (click)="callMydial()" aria-label="Example icon button with a delete icon">
-        se connecter
-      </button>
-
-      <br>
-
-      <button mat-fab color="primary" (click)="callInscription()" aria-label="Example icon button with a delete icon">
-        S'inscrire
-      </button>
-
-    </div>
-  </div>
 
 <router-outlet></router-outlet>
