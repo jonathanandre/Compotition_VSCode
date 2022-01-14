@@ -16,7 +16,7 @@ export class InscriptionComponent implements OnInit {
 
   inscription(utilisateur : any) {
     let user = {login : utilisateur.login, mdp : utilisateur.mdp, nom : utilisateur.nom, prenom : utilisateur.prenom, email : utilisateur.email, dateNaissance : utilisateur.naissance, admin : false, pointsGlobal : null, pointsPari : null};
-    this.http.post('http://localhost:8087/inscription', user).subscribe({
+    this.http.post('http://localhost:8087/utilisateur/inscription', user).subscribe({
       next : (data)=> {console.log(data); this.dialogRef.close()},
       error : (err)=> {console.log(err)}
     })

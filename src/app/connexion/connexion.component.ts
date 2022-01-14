@@ -19,7 +19,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   seConnecter(value: any) {
-    this.httpClient.post('http://localhost:8087/connexion', value).subscribe({
+    this.httpClient.post('http://localhost:8087/utilisateur/connexion', value).subscribe({
       next:(data)=> {console.log(data); 
         this.utilisateur = data;
         if(this.utilisateur== null) {
