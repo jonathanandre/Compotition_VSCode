@@ -15,7 +15,7 @@ export class AppComponent {
 
   }
 
-  callMydial() {
+  callMyConnexion() {
     const myDialog = this.dialog.open(ConnexionComponent);
   }
 
