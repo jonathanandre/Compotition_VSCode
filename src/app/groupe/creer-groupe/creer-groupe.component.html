@@ -1,0 +1,24 @@
+<form #nouveauGroupe="ngForm" (ngSubmit)="creerGroupe(nouveauGroupe.value)" class="text-center border border-light p-5">
+
+    <p class="h4 mb-4">Création d'un groupe</p>
+
+    <!-- Nom du groupe -->
+    <div class="mb-4">
+        <input type="text" name="nom" #nomAct="ngModel" [(ngModel)]="groupe.nom" required class="form-control" placeholder="Nom du groupe">
+        <!-- <div class="text-danger" [hidden]="nomAct.valid">
+            <p>Saissez le nom du groupe</p>
+        </div> -->
+    </div>
+    
+    <!-- Description du groupe -->
+    <div class="mb-4">
+        <textarea name="description" #descriptionAct="ngModel" [(ngModel)]="groupe.description" required class="form-control" placeholder="Description du groupe"></textarea>
+        <!-- <div class="text-danger" [hidden]="descriptionAct.valid">
+            <p>Saissez une description pour le groupe</p>
+        </div> -->
+    </div>
+
+    <!-- Boutton de validation -->
+    <button [disabled]="!nouveauGroupe.form.valid" class="btn btn-info my-4 btn-block" type="submit">Créer</button>
+
+</form>
