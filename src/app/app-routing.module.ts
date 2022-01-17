@@ -8,7 +8,7 @@ import { TournoiComponent } from './tournoi/tournoi.component';
 const routes: Routes = [
   {path: 'tournoi', component: TournoiComponent},
   {path: 'groupe', component: GroupeComponent},
-  {path: 'creer-groupe', component: CreerGroupeComponent}
+  {path: 'creer-groupe', component: CreerGroupeComponent},
   {path: 'mon-profil', component: MonProfilComponent}
 ];
 
