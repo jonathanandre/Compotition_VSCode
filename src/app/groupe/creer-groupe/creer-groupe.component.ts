@@ -19,7 +19,7 @@ export class CreerGroupeComponent implements OnInit {
   creerGroupe(nouveauGroupe: any){
     let groupe = {nom : nouveauGroupe.nom, description : nouveauGroupe.description}
 
-    this.http.post('http://localhost:8087/groupe/creer', groupe).subscribe({
+    this.http.post('http://localhost:8087/groupes/creer', groupe).subscribe({
       next : (data)=> {console.log(data); this.dialogRef.close()},
       error : (err)=> {console.log(err)}
     })
