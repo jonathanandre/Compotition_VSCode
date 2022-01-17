@@ -7,7 +7,6 @@ import { TournoiComponent } from './tournoi/tournoi.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ProfilComponent } from './profil/profil.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,7 +21,6 @@ import { MatButtonModule } from'@angular/material/button';
     AppComponent,
     TournoiComponent,
     ConnexionComponent,
-    ProfilComponent,
     InscriptionComponent,
     MonProfilComponent,
     GroupeComponent,
