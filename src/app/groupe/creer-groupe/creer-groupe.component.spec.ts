@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfilComponent } from './profil.component';
+import { CreerGroupeComponent } from './creer-groupe.component';
 
-describe('ProfilComponent', () => {
-  let component: ProfilComponent;
-  let fixture: ComponentFixture<ProfilComponent>;
+describe('CreerGroupeComponent', () => {
+  let component: CreerGroupeComponent;
+  let fixture: ComponentFixture<CreerGroupeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfilComponent ]
+      declarations: [ CreerGroupeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfilComponent);
+    fixture = TestBed.createComponent(CreerGroupeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
