@@ -18,7 +18,6 @@ export class GroupeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMesGroupes();
-    console.log('groupe ngOnInit', this.groupes)
   }
 
   getMesGroupes(){
