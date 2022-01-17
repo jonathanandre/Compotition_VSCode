@@ -1,31 +1,18 @@
-<p>mon-profil works!</p>
+
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
+<h2>Mon Profil</h2>
 <div class="container emp-profile">
-            <form method="post">
+            
                 <div class="row">
                     <div class="col-md-4">
                         
                     </div>
-                    <div class="col-md-6">
-                        <div class="profile-head">
-                                    <h5>
-                                        Kshiti Ghelani 
-                                    </h5>
-                                    <h6>
-                                        
-                                    </h6>
-                                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Modifier profil"/>
-                    </div>
+                    
+                    
                 </div>
                 <div class="row">
                     <div class="col-md-4">
@@ -39,7 +26,7 @@
                                                 <label>Login</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti123</p>
+                                                <p> {{ user.login }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -47,7 +34,7 @@
                                                 <label>Mot de passe</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>mdp123</p>
+                                                <p>{{ user.mdp }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -55,7 +42,7 @@
                                                 <label>Nom</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Ghelani</p>
+                                                <p>{{ user.nom }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -63,7 +50,7 @@
                                                 <label>Prenom</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti</p>
+                                                <p>{{ user.prenom }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -71,7 +58,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
+                                                <p>{{ user.email }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -79,7 +66,7 @@
                                                 <label>Date de naissance</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>22/04/1978</p>
+                                                <p>{{ user.dateNaissance | date: 'd/M/y' }}</p>
                                             </div>
                                         </div>
                                         
@@ -87,5 +74,9 @@
                         </div>
                     </div>
                 </div>
-            </form>           
+            <div class="col-md-2">
+                <button class="btn btn-primary" (click)="callModifProfil()">
+                    Modifier profil
+                </button>
+            </div>          
         </div>
