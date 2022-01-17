@@ -12,7 +12,10 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
-import { MonProfilComponent } from './mon-profil/mon-profil.component'; 
+import { MonProfilComponent } from './mon-profil/mon-profil.component';
+import { GroupeComponent } from './groupe/groupe.component';
+import { CreerGroupeComponent } from './groupe/creer-groupe/creer-groupe.component'; 
+import { MatButtonModule } from'@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { MonProfilComponent } from './mon-profil/mon-profil.component';
     ConnexionComponent,
     ProfilComponent,
     InscriptionComponent,
-    MonProfilComponent
+    MonProfilComponent,
+    GroupeComponent,
+    CreerGroupeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,8 @@ import { MonProfilComponent } from './mon-profil/mon-profil.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

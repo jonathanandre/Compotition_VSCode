@@ -1,0 +1,28 @@
+<h1 class="text-center">Mes groupes</h1>
+
+<div class="row">
+    <div class="col-sm-4 text-center mt-3">
+      <strong class="text-info">Créer un nouveau groupe &nbsp;&nbsp;</strong>
+      <button mat-fab color="accent" (click)="callNouveauGroupe()" aria-label="Example icon button with a delete icon">
+        <mat-icon>group_add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let g of groupes">
+                <td>{{ g.id }}</td>
+                <td><strong>{{ g.nom }}</strong></td>
+                <td>{{ g.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
