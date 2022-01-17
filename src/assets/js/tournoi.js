@@ -110,7 +110,7 @@ $(element).html(fr[$(element).html()]);
 }
 $(document).ready(function(){
 $.ajaxSetup({ cache: false });
-$.getJSON( "resultats.json", function( data ) {
+$.getJSON( "assets/js/resultats.json", function( data ) {
 infos=data;
 affiche_tournoi();
 });
