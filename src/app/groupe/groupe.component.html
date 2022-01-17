@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-sm-4 text-center mt-3">
       <strong class="text-info">Créer un nouveau groupe &nbsp;&nbsp;</strong>
-      <button mat-fab color="accent" (click)="callNouveauGroupe()" aria-label="Example icon button with a delete icon">
+      <button mat-fab color="accent" (click)="callNouveauGroupe()">
         <mat-icon>group_add</mat-icon>
       </button>
     </div>
@@ -19,9 +19,9 @@
         </thead>
         <tbody>
             <tr *ngFor="let g of groupes">
-                <td>{{ g.id }}</td>
-                <td><strong>{{ g.nom }}</strong></td>
-                <td>{{ g.description }}</td>
+                <td>{{ g.groupe.id }}</td>
+                <td><strong>{{ g.groupe.nom }}</strong></td>
+                <td>{{ g.groupe.nom }}</td>
             </tr>
         </tbody>
     </table>

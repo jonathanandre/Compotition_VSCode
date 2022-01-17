@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 import { CreerGroupeComponent } from './creer-groupe/creer-groupe.component';
 
 @Component({
@@ -12,15 +13,19 @@ import { CreerGroupeComponent } from './creer-groupe/creer-groupe.component';
 export class GroupeComponent implements OnInit {
 
   groupes: any
-  constructor(private http: HttpClient, private dialog: MatDialog, private router: Router) { }
+  url: any
+  constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private auth : AuthService) { }
 
   ngOnInit(): void {
     this.getMesGroupes();
+    console.log('groupe ngOnInit', this.groupes)
   }
 
   getMesGroupes(){
-    this.http.get('http://localhost:8087/groupes/mes-groupes/{id}').subscribe({
-    next : (data) => { this.groupes = data },
+    this.url = 'http://localhost:8087/groupes/mes-groupes/' + this.auth.getUserConnect().id
+    this.http.get(this.url).subscribe({
+    next : (data) => { this.groupes = data //;console.log(this.groupes) 
+    },
     error : (err) => { console.log(err) }
     });
   }
