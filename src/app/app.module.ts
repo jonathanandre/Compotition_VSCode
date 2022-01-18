@@ -17,6 +17,7 @@ import { GroupeComponent } from './groupe/groupe.component';
 import { CreerGroupeComponent } from './groupe/creer-groupe/creer-groupe.component'; 
 import { MatButtonModule } from'@angular/material/button';
 import { MessagePoteComponent } from './potes/message-pote/message-pote.component';
+import { InvitationRecuComponent } from './groupe/invitation-recu/invitation-recu.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MessagePoteComponent } from './potes/message-pote/message-pote.componen
     ModifProfilComponent,
     GroupeComponent,
     CreerGroupeComponent,
-    MessagePoteComponent
+    MessagePoteComponent,
+    InvitationRecuComponent
   ],
   imports: [
     BrowserModule,

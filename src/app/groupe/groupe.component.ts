@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { CreerGroupeComponent } from './creer-groupe/creer-groupe.component';
+import { InvitationRecuComponent } from './invitation-recu/invitation-recu.component';
 
 @Component({
   selector: 'app-groupe',
@@ -18,7 +19,6 @@ export class GroupeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMesGroupes();
-    console.log('groupe ngOnInit', this.groupes)
   }
 
   getMesGroupes(){
@@ -42,6 +42,13 @@ export class GroupeComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate([currentUrl]);
+  }
+
+  callInvitationRecu(){
+    const myDialog = this.dialog.open(InvitationRecuComponent);
+    myDialog.afterClosed().subscribe(result => {
+      this.reloadComponent();
+    });
   }
 
 }
