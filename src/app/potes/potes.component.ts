@@ -221,7 +221,10 @@ export class PotesComponent implements OnInit {
     console.log("partie 3");
     console.log(value);
     for (var val in value) { console.log(val) }
-    this.http.put('http://localhost:8087/amitie', value[0]).subscribe({})
+    this.http.put('http://localhost:8087/amitie', value[0]).subscribe({
+      next: (data) => { console.log(data); this.ngOnInit(); },
+      error: (err) => { console.log(err) }
+    })
 
 
   }
