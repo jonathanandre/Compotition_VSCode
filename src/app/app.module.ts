@@ -17,6 +17,8 @@ import { GroupeComponent } from './groupe/groupe.component';
 import { CreerGroupeComponent } from './groupe/creer-groupe/creer-groupe.component'; 
 import { MatButtonModule } from'@angular/material/button';
 import { InvitationRecuComponent } from './groupe/invitation-recu/invitation-recu.component';
+import { CeGroupeComponent } from './groupe/ce-groupe/ce-groupe.component';
+import { ModifierGroupeComponent } from './groupe/ce-groupe/modifier-groupe/modifier-groupe.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { InvitationRecuComponent } from './groupe/invitation-recu/invitation-rec
     ModifProfilComponent,
     GroupeComponent,
     CreerGroupeComponent,
-    InvitationRecuComponent
+    InvitationRecuComponent,
+    CeGroupeComponent,
+    ModifierGroupeComponent
   ],
   imports: [
     BrowserModule,
