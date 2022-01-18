@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+var liste: any[] = [];
 
 
 @Component({
@@ -18,11 +19,19 @@ export class PotesComponent implements OnInit {
   utilisateur: any;
   login: any;
   a: any;
+  b: any;
+
+
+
+
   constructor(private http: HttpClient, private auth: AuthService, private router: Router) { }
 
 
 
   ngOnInit(): void {
+
+
+    this.b = 0;
     this.getAmisFromUser(this.auth.getUserConnect().id);
     this.getEnvoisFromUser(this.auth.getUserConnect().id);
     this.getRecusFromUser(this.auth.getUserConnect().id);
@@ -31,17 +40,47 @@ export class PotesComponent implements OnInit {
   getAmisFromUser(value: any) {
     this.http.get('http://localhost:8087/amitie/' + value).subscribe({
 
-      next: (data) => { this.potes = data; console.log(data) },
+      next: (data) => {
+        this.potes = data; console.log(data); for (var val in data) {
+
+          if (this.potes[val].envoyeur.id != this.auth.getUserConnect().id) {
+            liste.push(this.potes[val].envoyeur.login);
+            console.log(liste);
+          }
+          else {
+            liste.push(this.potes[val].receveur.login);
+            console.log(liste);
+
+
+          }
+        }
+      },
       error: (err) => { console.log(err) }
 
 
     });
+
+
   }
 
   getEnvoisFromUser(value: any) {
     this.http.get('http://localhost:8087/amitie/envoi/' + value).subscribe({
 
-      next: (data) => { this.potesenvoyes = data; console.log(data) },
+      next: (data) => {
+        this.potesenvoyes = data; console.log(data); for (var val in data) {
+
+          if (this.potesenvoyes[val].envoyeur.id != this.auth.getUserConnect().id) {
+            liste.push(this.potesenvoyes[val].envoyeur.login);
+            console.log(liste);
+          }
+          else {
+            liste.push(this.potesenvoyes[val].receveur.login);
+            console.log(liste);
+
+
+          }
+        }
+      },
       error: (err) => { console.log(err) }
 
 
@@ -51,7 +90,21 @@ export class PotesComponent implements OnInit {
   getRecusFromUser(value: any) {
     this.http.get('http://localhost:8087/amitie/reception/' + value).subscribe({
 
-      next: (data) => { this.potesrecus = data; console.log(data) },
+      next: (data) => {
+        this.potesrecus = data; console.log(data); for (var val in data) {
+
+          if (this.potesrecus[val].envoyeur.id != this.auth.getUserConnect().id) {
+            liste.push(this.potesrecus[val].envoyeur.login);
+            console.log(liste);
+          }
+          else {
+            liste.push(this.potesrecus[val].receveur.login);
+            console.log(liste);
+
+
+          }
+        }
+      },
       error: (err) => { console.log(err) }
 
 
@@ -63,24 +116,57 @@ export class PotesComponent implements OnInit {
   }
 
   envoyerinvitation(value: any) {
+    console.log("liste: ");
+    console.log("vérification liste", liste);
+    console.log('login' == 'login');
+    this.b=0;
+
 
 
 
 
     Object.entries(value)
       .forEach(([key, val]) => this.login = val);
-    console.log(this.login);
-    this.http.get('http://localhost:8087/utilisateur/amitie/' + this.login).subscribe({
-      next: (data) => {
-        this.utilisateur = data; console.log(this.utilisateur); console.log(this.utilisateur.id); this.envoyerinvitation_suite(this.utilisateur.id); this.msg = "";
-        if (this.utilisateur = null) {
-          this.msg = "le login n'existe pas";
+    if (this.login == this.auth.getUserConnect().login) {
+      this.msg = "Vous ne pouvez pas vous demander en amis"
+    }
+    else {
+      console.log("vérification liste 2", liste);
+
+      for (var val in liste) {
+        console.log("testing", liste[val]);
+        
+        if (this.login == liste[val]) {
+          this.b = 1;
         }
-      },
-      error: (err) => { console.log(err); this.msg = "le login n'existe pas"; }
+      }
+      if (this.b == 1) { this.msg = "login déjà présent" }
+      else {
+        console.log(this.login);
+        this.http.get('http://localhost:8087/utilisateur/amitie/' + this.login).subscribe({
+          next: (data) => {
+            this.utilisateur = data; console.log("utilisateur",this.utilisateur);  
+            
+            if (this.utilisateur == null) {
+              this.msg = "le login n'existe pas, essaie encore";
+            }
+            else{
+              this.envoyerinvitation_suite(this.utilisateur.id);
+              this.msg = "";
+              liste.push(this.utilisateur.login);
+            }
+
+          },
+          error: (err) => { console.log(err); this.msg = "il faut rentrer quelque chose!"; }
 
 
-    });
+        });
+      }
+
+
+    }
+
+
 
   }
 
@@ -98,10 +184,13 @@ export class PotesComponent implements OnInit {
   }
 
   accepter(value: any) {
+    console.log("partie 1");
     console.log(value);
 
+
+
     this.http.get('http://localhost:8087/utilisateur/amitie/' + value).subscribe({
-      next: (data) => { this.a=data,this.accepter_suite((this.a.id)) }
+      next: (data) => { this.a = data, this.accepter_suite((this.a.id)) }
 
 
     })
@@ -110,9 +199,11 @@ export class PotesComponent implements OnInit {
   }
 
   accepter_suite(value: any) {
+    console.log("partie 2");
     console.log(value);
+
     this.http.get('http://localhost:8087/amitie/reception/' + value + '/' + this.auth.getUserConnect().id).subscribe({
-      next: (data) => { console.log(data),this.accepter_fin(data) },
+      next: (data) => { console.log(data), this.accepter_fin(data) },
 
 
 
@@ -121,13 +212,49 @@ export class PotesComponent implements OnInit {
 
   }
 
-  accepter_fin(value:any){
+  accepter_fin(value: any) {
 
-    this.http.put('http://localhost:8087/amitie', value).subscribe({})
+
+    console.log("partie 3");
+    console.log(value);
+    for (var val in value) { console.log(val) }
+    this.http.put('http://localhost:8087/amitie', value[0]).subscribe({})
+
 
   }
 
   refuser(value: any) {
+    this.http.get('http://localhost:8087/utilisateur/amitie/' + value).subscribe({
+      next: (data) => { this.a = data, this.refuser_suite((this.a.id)),liste.splice(this.a.login), console.log("deletetest", liste) }
+      
+
+
+    })
+
+  }
+
+  refuser_suite(value: any) {
+    console.log("partie 2");
+    console.log(value);
+
+    this.http.get('http://localhost:8087/amitie/reception/' + value + '/' + this.auth.getUserConnect().id).subscribe({
+      next: (data) => { console.log(data), this.refuser_fin(data) },
+
+
+
+      error: (err) => { console.log(err) }
+    })
+
+  }
+
+  refuser_fin(value: any) {
+
+
+    console.log("partie 3");
+    console.log(value);
+    for (var val in value) { console.log(val) }
+    this.http.delete('http://localhost:8087/amitie/' + value[0].id).subscribe({})
+
 
   }
 
