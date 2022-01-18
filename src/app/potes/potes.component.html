@@ -14,15 +14,15 @@
                 <tr *ngFor="let p of potes">
                     <td *ngIf="bool(p.envoyeur)">
                         {{p.envoyeur.login}}
-                        <button class="btn btn-primary" (click)="callMsgPote(p)">
-                            Messagerie
+                        <button class="btn btn-link" (click)="callMsgPote(p)">
+                            <mat-icon> message</mat-icon>
                         </button>
                     </td>
 
                     <td *ngIf="bool(p.receveur)">
                         {{ p.receveur.login }}
-                        <button class="btn btn-primary" (click)="callMsgPote(p)">
-                            Messagerie
+                        <button class="btn btn-link" (click)="callMsgPote(p)">
+                            <mat-icon> message</mat-icon>
                         </button>
                     </td>
 

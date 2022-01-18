@@ -1,7 +1,8 @@
 
-  
+
+
     
-        <div class="card chat-room small-chat wide" id="myForm">
+        <div class="chat-room small-chat wide" id="myForm">
           <div class="card-header white d-flex justify-content-between p-2" id="toggle" style="cursor: pointer;">
             <div class="heading d-flex justify-content-start">
               
@@ -19,14 +20,14 @@
               
             
           </div>
-          <div class="my-custom-scrollbar" id="message">
+          <div class="my-custom-scrollbar">
             <br>
               <div class="chat-message">
                 
                 <div *ngFor="let m of messages">
-                    <div *ngIf="expediteur(m)" class="right ">
-                       
-                      <div class="card bg-primary rounded w-50 float-right z-depth-0 mb-2">
+                    <div *ngIf="expediteur(m)" class="right">
+                      
+                      <div class="card bg-primary rounded z-depth-0 mb-2">
                         
                             <div class="card-body p-2">
                               <p class="card-text text-white">
@@ -36,17 +37,17 @@
                         </div> 
                         
                       </div>
-                      <br>
+                      
                     <div *ngIf="!expediteur(m)">
-                        
-                            <div class="card bg-light rounded w-75 z-depth-0 mb-2">
+                      
+                            <div class="card bg-light rounded z-depth-0 mb-2">
                               <div class="card-body p-2">
                                 <p class="card-text black-text">
                                     {{m.contenu}}</p>
                               </div>
                             </div>
                       </div>
-                      <br>
+                      
                   </div> 
             </div>
           </div>
