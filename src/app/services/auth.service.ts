@@ -8,6 +8,7 @@ export class AuthService {
   user: any = null;
   ceGgroupe: any =null;
 
+  amitie: any = null;
   constructor(private router: Router) { }
 
   setGroupe(groupeTransmis: any){
@@ -36,4 +37,14 @@ export class AuthService {
     localStorage.clear();
     this.router.navigateByUrl('');
   }
+
+  setAmitieLocalStorage(a: any) {
+    localStorage.setItem('amitie', JSON.stringify(a));
+  }
+
+  getAmitie() {
+    this.amitie = localStorage.getItem('amitie');
+    return JSON.parse(this.amitie);
+  }
+
 }

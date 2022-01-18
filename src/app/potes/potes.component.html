@@ -12,9 +12,19 @@
             </thead>
             <tbody>
                 <tr *ngFor="let p of potes">
-                    <td *ngIf="bool(p.envoyeur)">{{p.envoyeur.login}}</td>
+                    <td *ngIf="bool(p.envoyeur)">
+                        {{p.envoyeur.login}}
+                        <button class="btn btn-link" (click)="callMsgPote(p)">
+                            <mat-icon> message</mat-icon>
+                        </button>
+                    </td>
 
-                    <td *ngIf="bool(p.receveur)">{{ p.receveur.login }}</td>
+                    <td *ngIf="bool(p.receveur)">
+                        {{ p.receveur.login }}
+                        <button class="btn btn-link" (click)="callMsgPote(p)">
+                            <mat-icon> message</mat-icon>
+                        </button>
+                    </td>
 
                 </tr>
             </tbody>
@@ -33,9 +43,9 @@
             </thead>
             <tbody>
                 <tr *ngFor="let p of potesrecus">
-                    <td *ngIf="bool(p.envoyeur)">{{p.envoyeur.login}}</td>
+                    <td *ngIf="bool(p.envoyeur)">{{p.envoyeur.login}}<button (click)="accepter(p.envoyeur.login)" style="margin-left: 4px; color: lime;">Accepter</button><button (click)="refuser(p.envoyeur.login)" style="margin-left: 4px; color:red;">Refuser</button></td>
 
-                    <td *ngIf="bool(p.receveur)">{{ p.receveur.login }}</td>
+                    <td *ngIf="bool(p.receveur)">{{p.receveur.login}}<button (click)="accepter(p.envoyeur.login)" style="margin-left: 4px; color: lime;">Accepter</button><button (click)="refuser(p.envoyeur.login)" style="margin-left: 4px; color:red;">Refuser</button></td>
 
                 </tr>
             </tbody>
@@ -76,7 +86,7 @@
                 <p class="h6 mb-4">Demande d'ami</p>
 
                 <!-- Email -->
-                <input style="width: 80%; margin: auto;" type="text" name="login" class="form-control mb-4"
+                <input style="width: 80%; margin: auto;" type="text" name="entree" class="form-control mb-4"
                     placeholder="entrer login" ngModel="">
 
                 <!-- Sign in button -->
@@ -84,9 +94,9 @@
                     type="submit">envoyer</button>
 
             </form>
-            {{ msg }}
+            <p style="color: tomato;"> {{ msg }}</p>
+           
             <br>
         </div>
-
     </div>
 </div>

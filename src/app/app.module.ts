@@ -16,6 +16,7 @@ import { ModifProfilComponent } from './mon-profil/modif-profil/modif-profil.com
 import { GroupeComponent } from './groupe/groupe.component';
 import { CreerGroupeComponent } from './groupe/creer-groupe/creer-groupe.component'; 
 import { MatButtonModule } from'@angular/material/button';
+import { MessagePoteComponent } from './potes/message-pote/message-pote.component';
 import { InvitationRecuComponent } from './groupe/invitation-recu/invitation-recu.component';
 import { CeGroupeComponent } from './groupe/ce-groupe/ce-groupe.component';
 import { ModifierGroupeComponent } from './groupe/ce-groupe/modifier-groupe/modifier-groupe.component';
@@ -33,7 +34,8 @@ import { ModifierGroupeComponent } from './groupe/ce-groupe/modifier-groupe/modi
     CreerGroupeComponent,
     InvitationRecuComponent,
     CeGroupeComponent,
-    ModifierGroupeComponent
+    ModifierGroupeComponent,
+    MessagePoteComponent
   ],
   imports: [
     BrowserModule,
