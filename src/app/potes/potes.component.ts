@@ -171,13 +171,13 @@ export class PotesComponent implements OnInit {
   envoyerinvitation_suite(value: any) {
     console.log(2);
     this.http.post('http://localhost:8087/amitie', { "id": 0, "envoyeur": { "id": this.auth.getUserConnect().id }, "receveur": { "id": value }, "accepted": false }).subscribe({
-      next: (data) => { console.log(25) },
+      next: (data) => { console.log(25); this.ngOnInit(); },
 
 
 
       error: (err) => { console.log(err) }
     })
-    this.router.navigateByUrl('potes')
+    
 
   }
 
@@ -256,7 +256,10 @@ export class PotesComponent implements OnInit {
     console.log("partie 3");
     console.log(value);
     for (var val in value) { console.log(val) }
-    this.http.delete('http://localhost:8087/amitie/' + value[0].id).subscribe({})
+    this.http.delete('http://localhost:8087/amitie/' + value[0].id).subscribe({
+      next: (data) => { console.log(data); this.ngOnInit(); },
+      error: (err) => { console.log(err) }
+    })
 
 
   }
