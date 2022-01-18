@@ -17,6 +17,8 @@
                         <button class="btn btn-primary" (click)="callMsgPote(p)">
                             Messagerie
                         </button>
+                        <button (click)="virer(p.envoyeur.login,p.receveur.login)" style="margin-left: 4px; color:red;">x</button>
+
                     </td>
 
                     <td *ngIf="bool(p.receveur)">
@@ -24,6 +26,8 @@
                         <button class="btn btn-primary" (click)="callMsgPote(p)">
                             Messagerie
                         </button>
+                        <button (click)="virer(p.envoyeur.login,p.receveur.login)" style="margin-left: 4px; color:red;">x</button>
+                      
                     </td>
 
                 </tr>
@@ -64,9 +68,9 @@
             </thead>
             <tbody>
                 <tr *ngFor="let p of potesenvoyes">
-                    <td *ngIf="bool(p.envoyeur)">{{p.envoyeur.login}}</td>
+                    <td *ngIf="bool(p.envoyeur)">{{p.envoyeur.login}}  <button (click)="virer(p.envoyeur.login,p.receveur.login)" style="margin-left: 4px; color:red;">x</button></td>
 
-                    <td *ngIf="bool(p.receveur)">{{ p.receveur.login }}</td>
+                    <td *ngIf="bool(p.receveur)">{{ p.receveur.login }}  <button (click)="virer(p.envoyeur.login,p.receveur.login)" style="margin-left: 4px; color:red;">x</button></td>
 
                 </tr>
             </tbody>

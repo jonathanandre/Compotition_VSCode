@@ -27,6 +27,7 @@ export class PotesComponent implements OnInit {
 
   ngOnInit(): void {
 
+    liste=[];
 
     this.b = 0;
     this.getAmisFromUser(this.auth.getUserConnect().id);
@@ -227,7 +228,7 @@ export class PotesComponent implements OnInit {
 
   refuser(value: any) {
     this.http.get('http://localhost:8087/utilisateur/amitie/' + value).subscribe({
-      next: (data) => { this.a = data, this.refuser_suite((this.a.id)),liste.splice(this.a.login), console.log("deletetest", liste) }
+      next: (data) => { console.log("data partie1", data),this.a = data, this.refuser_suite((this.a.id)),liste.splice(this.a.login), console.log("deletetest", liste) }
       
 
 
@@ -260,5 +261,52 @@ export class PotesComponent implements OnInit {
 
   }
 
+  c:any;
+  d:any;
+  e:any;
+  virer(value1:any,value2:any){
+    this.http.get('http://localhost:8087/utilisateur/amitie/' + value1).subscribe({
+
+      next: (data) => { this.c=data , this.virer_1(this.c.id,value2),this.updateliste(value1,value2)}
+      
+        
+      
+      
+
+
+    })
+  }
+
+  updateliste(value1:any, value2:any){
+    if(value1==this.auth.getUserConnect().login){
+
+      liste.splice(value2)
+    }
+    else{
+
+      liste.splice(value1)
+    }
+
+  }
+
+  virer_1(value1:any,value2:any){
+    this.http.get('http://localhost:8087/utilisateur/amitie/' + value2).subscribe({
+
+      next: (data) => { this.d=data , this.virer_2(value1,this.d.id)}
+      
+
+
+    })
+  }
+  virer_2(value1:any,value2:any){
+
+    this.http.get('http://localhost:8087/amitie/reception/' + value1 + '/' + value2).subscribe({
+      next: (data) => { this.e=data , this.refuser_fin(this.e)}
+    })
+    this.http.get('http://localhost:8087/amitie/reception/' + value2 + '/' + value1).subscribe({
+      next: (data) => { this.e=data , this.refuser_fin(this.e)}
+    })
+
+  }
 
 }
