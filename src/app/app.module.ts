@@ -16,6 +16,7 @@ import { ModifProfilComponent } from './mon-profil/modif-profil/modif-profil.com
 import { GroupeComponent } from './groupe/groupe.component';
 import { CreerGroupeComponent } from './groupe/creer-groupe/creer-groupe.component'; 
 import { MatButtonModule } from'@angular/material/button';
+import { MessagePoteComponent } from './potes/message-pote/message-pote.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MatButtonModule } from'@angular/material/button';
     PotesComponent,
     ModifProfilComponent,
     GroupeComponent,
-    CreerGroupeComponent
+    CreerGroupeComponent,
+    MessagePoteComponent
   ],
   imports: [
     BrowserModule,

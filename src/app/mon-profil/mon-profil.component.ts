@@ -13,7 +13,7 @@ export class MonProfilComponent implements OnInit {
   constructor(private auth: AuthService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.user = this.auth.getUserConnect()
+    this.user = this.auth.getUserConnect();
   }
 
   callModifProfil() {

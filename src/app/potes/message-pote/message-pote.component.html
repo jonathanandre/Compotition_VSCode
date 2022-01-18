@@ -1,0 +1,61 @@
+
+  
+    
+        <div class="card chat-room small-chat wide" id="myForm">
+          <div class="card-header white d-flex justify-content-between p-2" id="toggle" style="cursor: pointer;">
+            <div class="heading d-flex justify-content-start">
+              
+              <div class="data">
+                <p class="name mb-0"><strong>{{ getLoginAmi() }}</strong></p>
+              </div>
+            </div>
+            
+              
+              <button mat-fab color="primary" (click)="closeMsg()">
+                <mat-icon>close</mat-icon>
+              </button>
+              
+
+              
+            
+          </div>
+          <div class="my-custom-scrollbar" id="message">
+            <br>
+              <div class="chat-message">
+                
+                <div *ngFor="let m of messages">
+                    <div *ngIf="expediteur(m)" class="right ">
+                       
+                      <div class="card bg-primary rounded w-50 float-right z-depth-0 mb-2">
+                        
+                            <div class="card-body p-2">
+                              <p class="card-text text-white">
+                                {{m.contenu}}</p>
+                            </div>
+                          
+                        </div> 
+                        
+                      </div>
+                      <br>
+                    <div *ngIf="!expediteur(m)">
+                        
+                            <div class="card bg-light rounded w-75 z-depth-0 mb-2">
+                              <div class="card-body p-2">
+                                <p class="card-text black-text">
+                                    {{m.contenu}}</p>
+                              </div>
+                            </div>
+                      </div>
+                      <br>
+                  </div> 
+            </div>
+          </div>
+          <form #msg="ngForm" (ngSubmit)="envoyerMsg(msg.value)">
+            <div class="card-footer text-muted white pt-1 pb-2 px-3">
+              <input type="text" name="contenu" ngModel="" class="form-control" placeholder="Type a message...">
+            </div>
+          </form>
+          
+        </div>
+    
+  

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MessagePoteComponent } from './message-pote/message-pote.component';
 
 @Component({
   selector: 'app-potes',
@@ -14,7 +16,7 @@ export class PotesComponent implements OnInit {
   potesrecus: any;
   msg: any;
   utilisateur: any;
-  constructor(private http: HttpClient, private auth: AuthService) { }
+  constructor(private http: HttpClient, private auth: AuthService, private dialog: MatDialog) { }
 
 
 
@@ -69,4 +71,10 @@ export class PotesComponent implements OnInit {
 
     })
   }
+
+  callMsgPote(p: any) {
+    this.auth.setAmitieLocalStorage(p);
+    const myDialog = this.dialog.open(MessagePoteComponent);
+  }
+  
 }
