@@ -12,7 +12,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
-import { MonProfilComponent } from './mon-profil/mon-profil.component'; 
+import { MonProfilComponent } from './mon-profil/mon-profil.component';
+import { ChallengeComponent } from './challenge/challenge.component'; 
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MonProfilComponent } from './mon-profil/mon-profil.component';
     ConnexionComponent,
     ProfilComponent,
     InscriptionComponent,
-    MonProfilComponent
+    MonProfilComponent,
+    ChallengeComponent
   ],
   imports: [
     BrowserModule,
