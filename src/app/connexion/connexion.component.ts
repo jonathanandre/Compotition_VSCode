@@ -27,8 +27,7 @@ export class ConnexionComponent implements OnInit {
         } else {
           this.auth.setUserLocalStorage(this.utilisateur);
           this.dialogRef.close();
-         // localStorage.setItem('utilisateur', JSON.stringify(this.utilisateur));
-          // this.router.navigateByUrl('event');
+         
         }
         },
         error: (err)=> {console.log(err)}
