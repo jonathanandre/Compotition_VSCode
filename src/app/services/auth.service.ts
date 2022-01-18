@@ -6,8 +6,14 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   user: any = null;
+  ceGgroupe: any =null;
+
   amitie: any = null;
   constructor(private router: Router) { }
+
+  setGroupe(groupeTransmis: any){
+    this.ceGgroupe = groupeTransmis
+  }
 
   setUserLocalStorage(u: any){
     localStorage.setItem('user', JSON.stringify(u));

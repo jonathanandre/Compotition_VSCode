@@ -48,7 +48,7 @@ export class MessagePoteComponent implements OnInit {
     let m = { contenu: msg.contenu, envoyeur: this.user, amitie: this.amitie};
     // console.log('objet message : ', m);
     this.http.post('http://localhost:8087/message', m).subscribe({
-      next:(data)=> {console.log(data); this.dialogRef.close(); },
+      next:(data)=> {console.log(data); this.ngOnInit(); },
       error: (err)=> {console.log(err)}
     })
   }

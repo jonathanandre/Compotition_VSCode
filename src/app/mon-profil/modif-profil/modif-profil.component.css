@@ -1,0 +1,8 @@
+.chat-room.small-chat {
+    position: relative;
+    -webkit-border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 20rem;
+  }
