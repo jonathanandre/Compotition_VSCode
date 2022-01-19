@@ -76,7 +76,7 @@ export class CeGroupeComponent implements OnInit {
   }
 
   rejoindreCompet() {
-
+    console.log('A faire')
   }
 
 }
