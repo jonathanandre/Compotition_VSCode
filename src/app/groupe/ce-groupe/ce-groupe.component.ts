@@ -17,10 +17,13 @@ export class CeGroupeComponent implements OnInit {
   appartGroupe: any
   url: any
   groupe: any
+  competitions: any
   constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private auth : AuthService) { }
 
   ngOnInit(): void {
     this.groupe = this.auth.ceGgroupe
+    console.log('Et le groupe est : ', this.groupe)
+    this.getAllCompetDuGroupe();
     this.getMembres()
   }
 
@@ -63,6 +66,17 @@ export class CeGroupeComponent implements OnInit {
 
   nouvelleCompet(){
     console.log('Ce bouton ne fonctionne pas encore')
+  }
+
+  getAllCompetDuGroupe() {
+    this.http.get('http://localhost:8087/groupe/competition/informations/' + this.groupe.id).subscribe({
+      next: (data)=> {console.log('competitions du groupe', data); this.competitions = data},
+      error: (err)=> {console.log(err)}
+    });
+  }
+
+  rejoindreCompet() {
+    console.log('A faire')
   }
 
 }
