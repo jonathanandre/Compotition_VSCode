@@ -1,4 +1,29 @@
 <div class="container mt-5">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th></th>
+                <th>Nom</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of competitions">
+                <td>{{ c.competition.id }}</td>
+                <td>
+                  <button mat-raised-button color="accent" (click)="sendCompetition(c.competition)" routerLink="ce-groupe">
+                    Voir
+                  </button>
+                </td>
+                <td><strong>{{ c.competition.nom }}</strong></td>
+                <td>{{ c.competition.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+<div class="container mt-5">
     <div class="md-form">
         <input type="text" class="form-control" id="participant" placeholder="Participant">
     </div>
