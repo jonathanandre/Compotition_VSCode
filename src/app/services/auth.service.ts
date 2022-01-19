@@ -9,6 +9,7 @@ export class AuthService {
 
   ceGgroupe: any =null;
   membre:any = null;
+  competition:any=null;
 
   amitie: any = null;
   constructor(private router: Router) { }
@@ -19,6 +20,14 @@ export class AuthService {
 
   setMembre(membreTransmis: any){
     this.membre = membreTransmis
+  }
+
+  setCompetition(c: any){
+    this.competition = c
+  }
+
+  getCompetition(){
+    return this.competition 
   }
 
   setUserLocalStorage(u: any){
