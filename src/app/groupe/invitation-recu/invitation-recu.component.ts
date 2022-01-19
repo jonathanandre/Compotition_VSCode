@@ -11,6 +11,8 @@ import { AuthService } from 'src/app/services/auth.service';
 export class InvitationRecuComponent implements OnInit {
 
   invitRecu: any
+  nbrInvitRecu: any = 0
+  invitDecline: any
   url: any
   date: any
 
@@ -18,12 +20,21 @@ export class InvitationRecuComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMesInvit()
+    this.getMesRefus()
   }
 
   getMesInvit(){
     this.url = 'http://localhost:8087/utilisateur/groupe/inviatations-en-cours/' + this.auth.getUserConnect().login
     this.http.get(this.url).subscribe({
-    next : (data) => { this.invitRecu = data },
+    next : (data) => { this.invitRecu = data; this.nbrInvitRecu = this.invitRecu.length },
+    error : (err) => { console.log(err) }
+    });
+  }
+  
+  getMesRefus(){
+    this.url = 'http://localhost:8087/utilisateur/groupe/inviatations-refuse/' + this.auth.getUserConnect().login
+    this.http.get(this.url).subscribe({
+    next : (data) => { this.invitDecline = data },
     error : (err) => { console.log(err) }
     });
   }

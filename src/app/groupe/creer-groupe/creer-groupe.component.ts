@@ -12,6 +12,8 @@ export class CreerGroupeComponent implements OnInit {
 
   groupe: any;
   appartenanceGroupe: any;
+  date: any 
+
   constructor(private http : HttpClient, private dialogRef : MatDialogRef<CreerGroupeComponent>, private auth : AuthService) { }
 
   ngOnInit(): void {
@@ -30,7 +32,8 @@ export class CreerGroupeComponent implements OnInit {
 
   ajoutCreateur(groupeCree : any){
     
-    let appartenanceGroupe = {utilisateur : this.auth.getUserConnect(), groupe : groupeCree, pointsParUtilisateurDansGroupe : 0}
+    this.date = new Date()
+    let appartenanceGroupe = {utilisateur : this.auth.getUserConnect(), groupe : groupeCree, pointsParUtilisateurDansGroupe : 0, invitationGroupeAccepte : true, dateInvitationRecue : this.date, dateInvitationReponse : this.date}
     console.log('this.groupe : ', groupeCree)
     this.http.post('http://localhost:8087/groupes/ajout-personnes', appartenanceGroupe).subscribe({
       next : (data)=> {console.log(data); this.dialogRef.close()},
