@@ -6,6 +6,7 @@ import { MonProfilComponent } from './mon-profil/mon-profil.component';
 import { TournoiComponent } from './tournoi/tournoi.component';
 import { PotesComponent } from './potes/potes.component';
 import { CeGroupeComponent } from './groupe/ce-groupe/ce-groupe.component';
+import { CeTournoiComponent } from './tournoi/ce-tournoi/ce-tournoi.component';
 import { PageaccueilpariComponent } from './pageaccueilpari/pageaccueilpari.component';
 import { PariComponent } from './pageaccueilpari/pari/pari.component';
 import { ClassementgeneralpariComponent } from './pageaccueilpari/classementgeneralpari/classementgeneralpari.component';

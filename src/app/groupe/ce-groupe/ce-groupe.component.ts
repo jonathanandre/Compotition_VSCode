@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { ConvGroupeComponent } from './conv-groupe/conv-groupe.component';
 import { InvitationGroupeComponent } from './invitation-groupe/invitation-groupe.component';
 import { ModifierGroupeComponent } from './modifier-groupe/modifier-groupe.component';
 import { SupprimerMembreComponent } from './supprimer-membre/supprimer-membre.component';
@@ -18,12 +19,15 @@ export class CeGroupeComponent implements OnInit {
   url: any
   groupe: any
   competitions: any
+  user: any
+  participation: any
   constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private auth : AuthService) { }
 
   ngOnInit(): void {
-    this.groupe = this.auth.ceGgroupe
+    this.groupe = this.auth.getGroupe()
     this.getAllCompetDuGroupe();
-    this.getMembres()
+    this.getMembres();
+    this.user = this.auth.getUserConnect();
   }
 
   modifierGroupe(){
@@ -41,7 +45,7 @@ export class CeGroupeComponent implements OnInit {
   }
   
   getMembres(){
-    this.url = 'http://localhost:8087/groupes/classement/' + this.auth.ceGgroupe.id
+    this.url = 'http://localhost:8087/groupes/classement/' + this.auth.getGroupe().id
     this.http.get(this.url).subscribe({
     next : (data) => { this.appartGroupe = data },
     error : (err) => { console.log(err) }
@@ -74,8 +78,37 @@ export class CeGroupeComponent implements OnInit {
     });
   }
 
-  rejoindreCompet() {
-    console.log('A faire')
+  rejoindreCompet(c: any) {
+    let participe = {utilisateur: this.user, competition: c};
+    this.http.post('http://localhost:8087/competition/participation/ajouter', participe).subscribe({
+      next: (data)=> {console.log('competition rejoint', data); this.reloadComponent(); },
+      error: (err)=> {console.log(err)}
+    })
+  }
+
+  participe(c: any) {
+    // this.http.get('http://localhost:8087/competition/' + c.id + '/participation/utilisateur/' + this.user.login).subscribe({
+    //   next: (data)=> {console.log("participe ou participe pas : ",data); this.participation = data ;
+    // },
+    //   error: (err)=> {console.log(err)}
+    // })
+    console.log("participation", this.participation);
+    if (this.participation==null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  quitterCompet(c: any) {
+    this.http.delete('http://localhost:8087/competition/' + c.id + '/participation/supprimer/' + this.user.login).subscribe({
+      next: (data)=> {console.log('participation a la compet supprimee', data); this.reloadComponent(); },
+      error: (err)=> {console.log(err)}
+    })
+  }
+
+  callConvGroupe() {
+    const myDialog = this.dialog.open(ConvGroupeComponent);
   }
 
 }

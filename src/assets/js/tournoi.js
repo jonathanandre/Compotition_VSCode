@@ -2,7 +2,7 @@ infos = {};
 function sauver(data) {
         infos = data;
         affiche_tournoi();
-} // A suivre...
+}
 
 function ajoute_participant() {
         if ((infos.results.length !== 0) || ($("#participant").val() === "")) return;
@@ -25,7 +25,7 @@ function ajoute_participant() {
 
         affiche_tournoi();
         $("#participant").val("");
-} // A suivre...
+}
 
 function shuffle(a) {
         var j, x, i;
@@ -53,7 +53,7 @@ function tirage_aleatoire() {
         }
         infos.teams = retour;
         affiche_tournoi();
-} // A suivre...
+}
 
 function enregistrer() {
         $.ajax({
@@ -65,7 +65,7 @@ function enregistrer() {
                 success: function () { alert("Enregistrement réussi"); },
                 error: function () { alert("Impossible d'enregistrer"); }
         });
-} // A suivre...
+}
 function liste_participants() {
         return infos.teams.flat().filter(function (el) {
                 return el !== null;
@@ -74,7 +74,7 @@ function liste_participants() {
 function vider() {
         infos = { "teams": [], "results": [] };
         affiche_tournoi();
-} // A suivre…
+}
 function edit_fn(container, data, doneCb) { }
 function render_fn(container, data, score, state) {
         switch (state) {
