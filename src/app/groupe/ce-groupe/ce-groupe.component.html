@@ -46,7 +46,10 @@
         <div class="titre container mt-3 col-sm-10">
             <h1>*Conversation du groupe*</h1>
         </div>
-        A faire
+        <br>
+        <button class="btn btn-primary" (click)="callConvGroupe()">
+            Conversation du groupe <mat-icon> message</mat-icon>
+        </button>
     </div>
 </div>
 
@@ -86,9 +89,16 @@
                 <th>{{c.format}}</th>
                 <th>{{c.description}}</th>
                 <th>{{c.pari}}</th>
-                <th><button class="btn btn-primary" (click)="rejoindreCompet()">
-                    Rejoindre
-                </button></th>
+                <th *ngIf="!participe(c)">
+                    <button class="btn btn-primary" (click)="rejoindreCompet(c)">
+                        Rejoindre
+                    </button>
+                </th>
+                <th *ngIf="participe(c)">
+                    <button class="btn btn-primary" (click)="quitterCompet(c)">
+                        quitter
+                    </button>
+                </th>
             </tr>
         </tbody>
     </table>
