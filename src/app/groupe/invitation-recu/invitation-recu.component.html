@@ -1,5 +1,5 @@
 <div class="text-center border border-light p-5">
-    <h1>Vous avez <!--{{nbrInvit}}--> invitation(s)</h1>
+    <h1>Vous avez {{nbrInvitRecu}} invitation(s)</h1>
     
     <div class="container mt-3">
         <table class="table">
@@ -12,20 +12,47 @@
                 </tr>
             </thead>
             <tbody>
-                <tr >
-                    <td><strong><!--Nom--></strong></td>
-                    <td><!--Description--></td>
+                <tr *ngFor="let ir of invitRecu">
+                    <td><strong>{{ir.groupe.nom}}</strong></td>
+                    <td>{{ir.groupe.description}}</td>
                     <td>
-                        <button mat-raised-button color="accent">
+                        <button mat-raised-button color="accent" (click)="acceptInvit(ir)">
                             <mat-icon>done</mat-icon>
                         </button>
                     </td>
                     <td>
-                        <button mat-raised-button color="accent">
+                        <button mat-raised-button color="accent" (click)="declineInvit(ir)">
                             <mat-icon>clear</mat-icon>
                         </button>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+
+    <h3>Invitation(s) déclinée(s)</h3>
+    
+    <div class="container mt-3">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let id of invitDecline">
+                    <td><strong>{{id.groupe.nom}}</strong></td>
+                    <td>{{id.groupe.description}}</td>
+                    <td>
+                        <button mat-raised-button color="accent" (click)="acceptInvit(id)">
+                            <mat-icon>done</mat-icon>
+                        </button>
+                    </td>
             </tbody>
         </table>
     </div>

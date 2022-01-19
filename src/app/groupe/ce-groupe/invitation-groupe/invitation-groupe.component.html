@@ -1,0 +1,9 @@
+<form #newMember="ngForm" (ngSubmit)="invitation(newMember.value)" class="text-center border border-light p-5" >
+
+    <p class="h4 mb-4">Inviter à rejoindre {{groupe.nom}}</p>
+
+    <input type="text" name="login" [(ngModel)]="invitMember.login" required class="form-control mb-4" placeholder="Login de l'invité">
+
+    <button [disabled]="!newMember.form.valid" class="btn btn-info my-4 btn-block" type="submit">Envoyer</button>
+
+</form>
