@@ -30,8 +30,7 @@ export class ModifProfilComponent implements OnInit {
     let user = {id : this.userConnected.id, login : utilisateur.login, mdp : utilisateur.mdp, nom : utilisateur.nom, prenom : utilisateur.prenom, email : utilisateur.email, dateNaissance : utilisateur.naissance, admin : this.userConnected.admin, pointsGlobal : this.userConnected.pointsGlobal, pointsPari : this.userConnected.pointsPari};
     this.httpClient.put('http://localhost:8087/utilisateur/informations/modifier', user).subscribe({
       next: (data) => { console.log(data); this.dialogRef.close(); 
-        this.auth.setUserLocalStorage(user);
-        this.router.navigateByUrl('mon-profil');  },
+        this.auth.setUserLocalStorage(user);  },
       error: (err) => { console.log("erreur modif profil !!! :::",err) }
     })
   }

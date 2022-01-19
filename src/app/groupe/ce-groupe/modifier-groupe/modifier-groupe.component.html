@@ -1,0 +1,14 @@
+
+<form #groupeModif="ngForm" (ngSubmit)="modifGroupe(groupeModif.value)" class="text-center border border-light p-5" >
+
+    <p class="h4 mb-4">Modification du groupe</p>
+
+    <!-- Nom -->
+    <input type="text" name="nom" [(ngModel)]="groupe.nom" required class="form-control mb-4" >
+    
+
+    <!-- Description -->
+    <textarea name="description" [(ngModel)]="groupe.description" required class="form-control mb-4" ></textarea>
+
+    <button class="btn btn-info my-4 btn-block" type="submit">Enregistrer</button>
+</form>

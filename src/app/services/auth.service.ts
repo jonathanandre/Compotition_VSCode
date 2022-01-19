@@ -6,7 +6,20 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   user: any = null;
+
+  ceGgroupe: any =null;
+  membre:any = null;
+
+  amitie: any = null;
   constructor(private router: Router) { }
+
+  setGroupe(groupeTransmis: any){
+    this.ceGgroupe = groupeTransmis
+  }
+
+  setMembre(membreTransmis: any){
+    this.membre = membreTransmis
+  }
 
   setUserLocalStorage(u: any){
     localStorage.setItem('user', JSON.stringify(u));
@@ -30,4 +43,14 @@ export class AuthService {
     localStorage.clear();
     this.router.navigateByUrl('');
   }
+
+  setAmitieLocalStorage(a: any) {
+    localStorage.setItem('amitie', JSON.stringify(a));
+  }
+
+  getAmitie() {
+    this.amitie = localStorage.getItem('amitie');
+    return JSON.parse(this.amitie);
+  }
+
 }
