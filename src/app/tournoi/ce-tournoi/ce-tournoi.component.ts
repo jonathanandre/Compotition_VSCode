@@ -20,7 +20,7 @@ export class CeTournoiComponent implements OnInit {
   }
 
   getCompetitionById() {
-    this.http.get('http://localhost:8087/duel/natif').subscribe({
+    this.http.get('http://localhost:8087/competition/informations/' + this.competitions.id).subscribe({
       next: (data)=> {console.log('competitions du groupe', data); this.competitions = data},
       error: (err)=> {console.log(err)}
     });
