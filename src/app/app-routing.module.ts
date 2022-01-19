@@ -6,6 +6,7 @@ import { MonProfilComponent } from './mon-profil/mon-profil.component';
 import { TournoiComponent } from './tournoi/tournoi.component';
 import { PotesComponent } from './potes/potes.component';
 import { CeGroupeComponent } from './groupe/ce-groupe/ce-groupe.component';
+import { CeTournoiComponent } from './tournoi/ce-tournoi/ce-tournoi.component';
 
 const routes: Routes = [
   {path: 'tournoi', component: TournoiComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'groupe', component: GroupeComponent},
   {path: 'creer-groupe', component: CreerGroupeComponent},
   {path: 'groupe/ce-groupe', component: CeGroupeComponent},
+  {path: 'tournoi/ce-tournoi', component: CeTournoiComponent},
 
 ];
 
