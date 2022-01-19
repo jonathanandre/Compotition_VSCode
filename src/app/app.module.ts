@@ -22,6 +22,7 @@ import { CeGroupeComponent } from './groupe/ce-groupe/ce-groupe.component';
 import { ModifierGroupeComponent } from './groupe/ce-groupe/modifier-groupe/modifier-groupe.component';
 import { SupprimerMembreComponent } from './groupe/ce-groupe/supprimer-membre/supprimer-membre.component';
 import { InvitationGroupeComponent } from './groupe/ce-groupe/invitation-groupe/invitation-groupe.component';
+import { ConvGroupeComponent } from './groupe/ce-groupe/conv-groupe/conv-groupe.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { InvitationGroupeComponent } from './groupe/ce-groupe/invitation-groupe/
     ModifierGroupeComponent,
     MessagePoteComponent,
     SupprimerMembreComponent,
-    InvitationGroupeComponent
+    InvitationGroupeComponent,
+    ConvGroupeComponent
   ],
   imports: [
     BrowserModule,
