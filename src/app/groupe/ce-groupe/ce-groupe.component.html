@@ -15,10 +15,21 @@
 
 <div class="row mt-5">
     <div class="col-sm-6 text-center">
-        <button mat-fab color="accent" (click)="invitationGroupe()">
-            <mat-icon>person_add</mat-icon>
-        </button>
-        <strong class="text-info">&nbsp;&nbsp; Inviter </strong>
+        <div class="row">
+            <div class="col-sm-6">
+                <button mat-fab color="accent" (click)="invitationGroupe()">
+                    <mat-icon>person_add</mat-icon>
+                </button>
+                <strong class="text-info">&nbsp;&nbsp; Inviter </strong>
+            </div>
+            <div class="col-sm-6">
+                <button class="btn btn-primary" (click)="callConvGroupe()">
+                    Conversation du groupe 
+                    <mat-icon> message</mat-icon>
+                </button>
+            </div>
+        </div>
+
         <div class="container mt-3">
             <table class="table">
                 <thead class="thead-dark">
@@ -42,14 +53,12 @@
             </table>
         </div>
     </div>
+
     <div class="col-sm-6 text-center">
         <div class="titre container mt-3 col-sm-10">
-            <h1>*Conversation du groupe*</h1>
+            <h1>*Classement du groupe*</h1>
         </div>
         <br>
-        <button class="btn btn-primary" (click)="callConvGroupe()">
-            Conversation du groupe <mat-icon> message</mat-icon>
-        </button>
     </div>
 </div>
 
