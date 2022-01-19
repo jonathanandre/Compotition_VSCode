@@ -12,3 +12,36 @@
         <strong class="text-info">&nbsp;&nbsp; Modifier informations du groupe </strong>
     </div>
 </div>
+<br><br><br>
+<h2>Liste des compétitions</h2>
+<div class="container mt-5">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>activite</th>
+                <th>dateDebut</th>
+                <th>dateFin</th>
+                <th>lieu</th>
+                <th>limiteInscription</th>
+                <th>format</th>
+                <th>description</th>
+                <th>pari</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of competitions">
+                <td>{{c.activite}}</td>
+                <th>{{c.dateDebut | date: 'd/M/y'}}</th>
+                <th>{{c.dateDebut | date: 'd/M/y'}}</th>
+                <th>{{c.lieu}}</th>
+                <th>{{c.limiteInscription | date: 'd/M/y'}}</th>
+                <th>{{c.format}}</th>
+                <th>{{c.description}}</th>
+                <th>{{c.pari}}</th>
+                <th><button class="btn btn-primary" (click)="rejoindreCompet()">
+                    Rejoindre
+                </button></th>
+            </tr>
+        </tbody>
+    </table>
+</div>

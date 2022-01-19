@@ -13,11 +13,13 @@ import { ModifierGroupeComponent } from './modifier-groupe/modifier-groupe.compo
 export class CeGroupeComponent implements OnInit {
 
   groupe: any
+  competitions: any
   constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private auth : AuthService) { }
 
   ngOnInit(): void {
     this.groupe = this.auth.ceGgroupe
     console.log('Et le groupe est : ', this.groupe)
+    this.getAllCompetDuGroupe();
   }
 
   modifierGroupe(){
@@ -32,6 +34,17 @@ export class CeGroupeComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate([currentUrl]);
+  }
+
+  getAllCompetDuGroupe() {
+    this.http.get('http://localhost:8087/groupe/competition/informations/' + this.groupe.id).subscribe({
+      next: (data)=> {console.log('competitions du groupe', data); this.competitions = data},
+      error: (err)=> {console.log(err)}
+    });
+  }
+
+  rejoindreCompet() {
+    
   }
 
 }
