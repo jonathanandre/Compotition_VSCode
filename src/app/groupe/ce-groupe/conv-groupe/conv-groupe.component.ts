@@ -16,7 +16,7 @@ export class ConvGroupeComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.auth.getUserConnect();
-    this.groupe = this.auth.ceGgroupe;
+    this.groupe = this.auth.getGroupe();
     this.getConversationOfGroupe(this.groupe.id);
   }
 

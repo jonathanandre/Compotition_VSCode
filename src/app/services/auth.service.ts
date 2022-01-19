@@ -7,14 +7,19 @@ import { Router } from '@angular/router';
 export class AuthService {
   user: any = null;
 
-  ceGgroupe: any =null;
+  ceGgroupe: any = null;
   membre:any = null;
 
   amitie: any = null;
   constructor(private router: Router) { }
 
   setGroupe(groupeTransmis: any){
-    this.ceGgroupe = groupeTransmis
+    localStorage.setItem('ceGgroupe', JSON.stringify(groupeTransmis));
+  }
+
+  getGroupe(){
+    this.ceGgroupe = localStorage.getItem('ceGgroupe');
+    return JSON.parse(this.ceGgroupe);
   }
 
   setMembre(membreTransmis: any){

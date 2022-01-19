@@ -24,7 +24,8 @@ export class CeGroupeComponent implements OnInit {
   constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private auth : AuthService) { }
 
   ngOnInit(): void {
-    this.groupe = this.auth.ceGgroupe
+    console.log('ce groupe :', this.auth.getGroupe())
+    this.groupe = this.auth.getGroupe()
     this.getAllCompetDuGroupe();
     this.getMembres();
     this.user = this.auth.getUserConnect();
@@ -45,7 +46,7 @@ export class CeGroupeComponent implements OnInit {
   }
   
   getMembres(){
-    this.url = 'http://localhost:8087/groupes/classement/' + this.auth.ceGgroupe.id
+    this.url = 'http://localhost:8087/groupes/classement/' + this.auth.getGroupe().id
     this.http.get(this.url).subscribe({
     next : (data) => { this.appartGroupe = data },
     error : (err) => { console.log(err) }

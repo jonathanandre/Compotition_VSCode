@@ -20,7 +20,7 @@ export class InvitationGroupeComponent implements OnInit {
   constructor(private http: HttpClient ,private dialogRef: MatDialogRef<InvitationGroupeComponent>, private auth : AuthService) { }
 
   ngOnInit(): void {
-    this.groupe = this.auth.ceGgroupe
+    this.groupe = this.auth.getGroupe()
     this.invitMember = {login : ''}
   }
 
@@ -36,7 +36,7 @@ export class InvitationGroupeComponent implements OnInit {
   sendinvit(invite: any){
     this.date = new Date()
 
-    this.newAppartGroupe = {utilisateur: invite, groupe: this.auth.ceGgroupe, dateInvitationRecue: this.date}
+    this.newAppartGroupe = {utilisateur: invite, groupe: this.auth.getGroupe(), dateInvitationRecue: this.date}
 
     console.log('test', this.newAppartGroupe, invite)
     this.http.post('http://localhost:8087/groupes/ajout-personnes', this.newAppartGroupe).subscribe({
