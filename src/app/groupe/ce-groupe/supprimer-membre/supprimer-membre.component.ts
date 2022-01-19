@@ -19,7 +19,7 @@ export class SupprimerMembreComponent implements OnInit {
   }
 
   removeMember(){
-    this.url = 'http://localhost:8087/groupes/supprimer-personnes/' + this.auth.ceGgroupe.id + '/' + this.login
+    this.url = 'http://localhost:8087/groupes/supprimer-personnes/' + this.auth.getGroupe().id + '/' + this.login
     this.http.delete(this.url).subscribe({
     next : (data) => { console.log(this.login + ' ne fait plus parti du groupe'); this.dialogRef.close() },
     error : (err) => { console.log(err) }

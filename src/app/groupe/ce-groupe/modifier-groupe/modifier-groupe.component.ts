@@ -14,11 +14,11 @@ export class ModifierGroupeComponent implements OnInit {
   constructor(private httpClient: HttpClient, private dialogRef : MatDialogRef<ModifierGroupeComponent>, private auth: AuthService) { }
 
   ngOnInit(): void {
-    this.groupe = this.auth.ceGgroupe
+    this.groupe = this.auth.getGroupe()
   }
 
   modifGroupe(groupeModif: any) {
-    let modifGroupe = {id : this.auth.ceGgroupe.id, nom : groupeModif.nom, description : groupeModif.description}
+    let modifGroupe = {id : this.auth.getGroupe().id, nom : groupeModif.nom, description : groupeModif.description}
     console.log('groupe modifié :', modifGroupe)
     this.httpClient.put('http://localhost:8087/groupes/informations/modifier', modifGroupe).subscribe({
       next : (data)=> {console.log(data); this.dialogRef.close()},
