@@ -24,7 +24,6 @@ export class CeGroupeComponent implements OnInit {
   constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private auth : AuthService) { }
 
   ngOnInit(): void {
-    console.log('ce groupe :', this.auth.getGroupe())
     this.groupe = this.auth.getGroupe()
     this.getAllCompetDuGroupe();
     this.getMembres();
