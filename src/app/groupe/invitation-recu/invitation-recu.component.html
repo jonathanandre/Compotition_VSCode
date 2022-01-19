@@ -1,5 +1,5 @@
 <div class="text-center border border-light p-5">
-    <h1>Vous avez <!--{{nbrInvit}}--> invitation(s)</h1>
+    <h1>Vous avez {{invitRecu.length}} invitation(s)</h1>
     
     <div class="container mt-3">
         <table class="table">
@@ -12,16 +12,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr >
-                    <td><strong><!--Nom--></strong></td>
-                    <td><!--Description--></td>
+                <tr *ngFor="let ir of invitRecu">
+                    <td><strong>{{ir.groupe.nom}}</strong></td>
+                    <td>{{ir.groupe.description}}</td>
                     <td>
-                        <button mat-raised-button color="accent">
+                        <button mat-raised-button color="accent" (click)="acceptInvit(ir)">
                             <mat-icon>done</mat-icon>
                         </button>
                     </td>
                     <td>
-                        <button mat-raised-button color="accent">
+                        <button mat-raised-button color="accent" (click)="declineInvit(ir)">
                             <mat-icon>clear</mat-icon>
                         </button>
                     </td>
@@ -29,5 +29,7 @@
             </tbody>
         </table>
     </div>
+
+    <!--Ajout de la liste des groupes refusés (au cas où l'utilisateur change d'avis)-->
 
 </div>

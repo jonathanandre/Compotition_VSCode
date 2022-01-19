@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class SupprimerMembreComponent implements OnInit {
 
   url : any
   login : any
-  constructor(private http: HttpClient, private auth : AuthService) { }
+  constructor(private http: HttpClient, private auth : AuthService, private dialogRef : MatDialogRef<SupprimerMembreComponent>) { }
 
   ngOnInit(): void {
     this.login = this.auth.membre.login
@@ -20,7 +21,7 @@ export class SupprimerMembreComponent implements OnInit {
   removeMember(){
     this.url = 'http://localhost:8087/groupes/supprimer-personnes/' + this.auth.ceGgroupe.id + '/' + this.login
     this.http.delete(this.url).subscribe({
-    next : (data) => { console.log(this.login + ' ne fait plus parti du groupe') },
+    next : (data) => { console.log(this.login + ' ne fait plus parti du groupe'); this.dialogRef.close() },
     error : (err) => { console.log(err) }
     });
 

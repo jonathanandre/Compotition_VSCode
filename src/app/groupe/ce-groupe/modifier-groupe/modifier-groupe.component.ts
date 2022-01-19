@@ -26,3 +26,5 @@ export class ModifierGroupeComponent implements OnInit {
     })
   }
 }
+
+/// modif groupe par login user ; ajout des invit en cours et refusées
