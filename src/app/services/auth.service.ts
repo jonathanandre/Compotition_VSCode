@@ -10,9 +10,14 @@ export class AuthService {
   ceGgroupe: any = null;
   membre:any = null;
 
+  competitions:any = null;
+
   amitie: any = null;
   constructor(private router: Router) { }
 
+  setCompetition(competitionTransmis: any){
+    this.competitions = competitionTransmis
+  }
   setGroupe(groupeTransmis: any){
     localStorage.setItem('ceGgroupe', JSON.stringify(groupeTransmis));
   }

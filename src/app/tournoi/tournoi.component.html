@@ -1,11 +1,36 @@
 <div class="container mt-5">
-    <div class="md-form">
-        <input type="text" class="form-control" id="participant" placeholder="Participant">
-    </div>
-    <button id="ajouter" class="btn btn-secondary btn-sm btn-block">Ajouter</button><br><br>
-    <button id="vider" class="btn btn-danger btn-sm">Vider</button>
-    <button id="aleatoire" class="btn btn-primary btn-sm">Tirage au sort + équilibrage</button>
-    <button id="enregistrer" class="btn btn-success btn-sm">Enregistrer</button>
-    <div id="tournoi"></div>
+    <div class="container mt-5">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>activite</th>
+                    <th></th>
+                    <th>dateDebut</th>
+                    <th>dateFin</th>
+                    <th>lieu</th>
+                    <th>limiteInscription</th>
+                    <th>format</th>
+                    <th>description</th>
+                    <th>pari</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of competitions">
+                    <td>{{c.activite}}</td>
+                    <td>
+                        <button mat-raised-button color="accent" (click)="sendCompetition(c.competition)" routerLink="ce-tournoi">
+                          Voir
+                        </button>
+                    </td>
+                    <th>{{c.dateDebut | date: 'd/M/y'}}</th>
+                    <th>{{c.dateDebut | date: 'd/M/y'}}</th>
+                    <th>{{c.lieu}}</th>
+                    <th>{{c.limiteInscription | date: 'd/M/y'}}</th>
+                    <th>{{c.format}}</th>
+                    <th>{{c.description}}</th>
+                    <th>{{c.pari}}</th>
+                    </tr>
+            </tbody>
+        </table>
+
     <router-outlet></router-outlet>
-</div>

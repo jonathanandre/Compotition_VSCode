@@ -22,6 +22,7 @@ import { CeGroupeComponent } from './groupe/ce-groupe/ce-groupe.component';
 import { ModifierGroupeComponent } from './groupe/ce-groupe/modifier-groupe/modifier-groupe.component';
 import { SupprimerMembreComponent } from './groupe/ce-groupe/supprimer-membre/supprimer-membre.component';
 import { InvitationGroupeComponent } from './groupe/ce-groupe/invitation-groupe/invitation-groupe.component';
+import { CeTournoiComponent } from './tournoi/ce-tournoi/ce-tournoi.component';
 import { ConvGroupeComponent } from './groupe/ce-groupe/conv-groupe/conv-groupe.component';
 import { PageaccueilpariComponent } from './pageaccueilpari/pageaccueilpari.component';
 import { PariComponent } from './pageaccueilpari/pari/pari.component';
@@ -46,6 +47,7 @@ import { AncienpariComponent } from './pageaccueilpari/ancienpari/ancienpari.com
     MessagePoteComponent,
     SupprimerMembreComponent,
     InvitationGroupeComponent,
+    CeTournoiComponent,
     ConvGroupeComponent,
     PageaccueilpariComponent,
     PariComponent,
