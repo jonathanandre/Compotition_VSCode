@@ -26,6 +26,7 @@ export class ChoixfavoriComponent implements OnInit {
     })
   }
 
+  
   valider(value:any){
     console.log(2);
     this.http.post('http://localhost:8087/votepari', {
