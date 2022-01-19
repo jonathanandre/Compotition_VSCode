@@ -15,10 +15,12 @@ export class GroupeComponent implements OnInit {
 
   groupes: any
   url: any
+  invitRecu: any
   constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private auth : AuthService) { }
 
   ngOnInit(): void {
     this.getMesGroupes();
+    this.getMesInvit();
   }
 
   sendGroupe(groupeClicked: any){
@@ -26,9 +28,17 @@ export class GroupeComponent implements OnInit {
   }
 
   getMesGroupes(){
-    this.url = 'http://localhost:8087/groupes/mes-groupes/' + this.auth.getUserConnect().id
+    this.url = 'http://localhost:8087/groupes/mes-groupes/' + this.auth.getUserConnect().login
     this.http.get(this.url).subscribe({
     next : (data) => { this.groupes = data },
+    error : (err) => { console.log(err) }
+    });
+  }
+
+  getMesInvit(){
+    this.url = 'http://localhost:8087/utilisateur/groupe/inviatations-en-cours/' + this.auth.getUserConnect().login
+    this.http.get(this.url).subscribe({
+    next : (data) => { this.invitRecu = data },
     error : (err) => { console.log(err) }
     });
   }

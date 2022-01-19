@@ -23,6 +23,11 @@ import { ModifierGroupeComponent } from './groupe/ce-groupe/modifier-groupe/modi
 import { SupprimerMembreComponent } from './groupe/ce-groupe/supprimer-membre/supprimer-membre.component';
 import { InvitationGroupeComponent } from './groupe/ce-groupe/invitation-groupe/invitation-groupe.component';
 import { ConvGroupeComponent } from './groupe/ce-groupe/conv-groupe/conv-groupe.component';
+import { PageaccueilpariComponent } from './pageaccueilpari/pageaccueilpari.component';
+import { PariComponent } from './pageaccueilpari/pari/pari.component';
+import { ClassementgeneralpariComponent } from './pageaccueilpari/classementgeneralpari/classementgeneralpari.component';
+import { ClassementamipariComponent } from './pageaccueilpari/classementamipari/classementamipari.component';
+import { AncienpariComponent } from './pageaccueilpari/ancienpari/ancienpari.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +46,12 @@ import { ConvGroupeComponent } from './groupe/ce-groupe/conv-groupe/conv-groupe.
     MessagePoteComponent,
     SupprimerMembreComponent,
     InvitationGroupeComponent,
-    ConvGroupeComponent
+    ConvGroupeComponent,
+    PageaccueilpariComponent,
+    PariComponent,
+    ClassementgeneralpariComponent,
+    ClassementamipariComponent,
+    AncienpariComponent
   ],
   imports: [
     BrowserModule,

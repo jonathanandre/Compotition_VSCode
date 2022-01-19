@@ -25,7 +25,6 @@ export class CeGroupeComponent implements OnInit {
 
   ngOnInit(): void {
     this.groupe = this.auth.ceGgroupe
-    console.log('Et le groupe est : ', this.groupe)
     this.getAllCompetDuGroupe();
     this.getMembres();
     this.user = this.auth.getUserConnect();
