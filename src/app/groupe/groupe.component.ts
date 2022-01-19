@@ -23,14 +23,12 @@ export class GroupeComponent implements OnInit {
 
   sendGroupe(groupeClicked: any){
     this.auth.setGroupe(groupeClicked)
-    console.log('Groupe : ', this.auth.ceGgroupe)
   }
 
   getMesGroupes(){
     this.url = 'http://localhost:8087/groupes/mes-groupes/' + this.auth.getUserConnect().id
     this.http.get(this.url).subscribe({
-    next : (data) => { this.groupes = data //;console.log(this.groupes) 
-    },
+    next : (data) => { this.groupes = data },
     error : (err) => { console.log(err) }
     });
   }
