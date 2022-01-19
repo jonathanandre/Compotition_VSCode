@@ -1,8 +1,11 @@
-<input type="text" id="participant" placeholder="Participant">
-<button id="ajouter">Ajouter</button><br><br>
-<button id="vider">Vider</button>
-<button id="aleatoire">Tirage au sort + équilibrage</button>
-<button id="enregistrer">Enregistrer</button>
-<div id="tournoi"></div>
-
-<router-outlet></router-outlet>  
+<div class="container mt-5">
+    <div class="md-form">
+        <input type="text" class="form-control" id="participant" placeholder="Participant">
+    </div>
+    <button id="ajouter" class="btn btn-secondary btn-sm btn-block">Ajouter</button><br><br>
+    <button id="vider" class="btn btn-danger btn-sm">Vider</button>
+    <button id="aleatoire" class="btn btn-primary btn-sm">Tirage au sort + équilibrage</button>
+    <button id="enregistrer" class="btn btn-success btn-sm">Enregistrer</button>
+    <div id="tournoi"></div>
+    <router-outlet></router-outlet>
+</div>

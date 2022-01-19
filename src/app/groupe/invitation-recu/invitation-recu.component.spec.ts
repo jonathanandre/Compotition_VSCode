@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfilComponent } from './profil.component';
+import { InvitationRecuComponent } from './invitation-recu.component';
 
-describe('ProfilComponent', () => {
-  let component: ProfilComponent;
-  let fixture: ComponentFixture<ProfilComponent>;
+describe('InvitationRecuComponent', () => {
+  let component: InvitationRecuComponent;
+  let fixture: ComponentFixture<InvitationRecuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfilComponent ]
+      declarations: [ InvitationRecuComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfilComponent);
+    fixture = TestBed.createComponent(InvitationRecuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

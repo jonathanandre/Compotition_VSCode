@@ -8,6 +8,10 @@ body{
     border-radius: 0.5rem;
     background: #fff;
 }
+h2{
+    text-align: center;
+    margin-top: 5px;
+}
 .profile-img{
     text-align: center;
 }
