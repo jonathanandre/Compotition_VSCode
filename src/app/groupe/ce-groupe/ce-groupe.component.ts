@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { InvitationGroupeComponent } from './invitation-groupe/invitation-groupe.component';
 import { ModifierGroupeComponent } from './modifier-groupe/modifier-groupe.component';
 import { SupprimerMembreComponent } from './supprimer-membre/supprimer-membre.component';
 
@@ -54,7 +55,10 @@ export class CeGroupeComponent implements OnInit {
   }
 
   invitationGroupe(){
-
+    const myDialog = this.dialog.open(InvitationGroupeComponent);
+    myDialog.afterClosed().subscribe(result => {
+      this.reloadComponent();
+    });
   }
 
   nouvelleCompet(){

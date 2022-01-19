@@ -1,1 +1,33 @@
-<p>A faire lorsque ce sera possible : gestion des invitations aux groupes</p>
+<div class="text-center border border-light p-5">
+    <h1>Vous avez <!--{{nbrInvit}}--> invitation(s)</h1>
+    
+    <div class="container mt-3">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td><strong><!--Nom--></strong></td>
+                    <td><!--Description--></td>
+                    <td>
+                        <button mat-raised-button color="accent">
+                            <mat-icon>done</mat-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <button mat-raised-button color="accent">
+                            <mat-icon>clear</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
