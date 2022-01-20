@@ -31,6 +31,10 @@ import { ClassementamipariComponent } from './pageaccueilpari/classementamipari/
 import { AncienpariComponent } from './pageaccueilpari/ancienpari/ancienpari.component';
 import { CreerCompetitionComponent } from './groupe/ce-groupe/creer-competition/creer-competition.component';
 import { ChoixfavoriComponent } from './pageaccueilpari/pari/choixfavori/choixfavori.component';
+import { RedirectionComponent } from './pageaccueilpari/pari/choixfavori/redirection/redirection.component';
+import { DatePipe } from '@angular/common'
+
+import { ClassementComponent } from './classement/classement.component';
 
 @NgModule({
   declarations: [
@@ -56,8 +60,11 @@ import { ChoixfavoriComponent } from './pageaccueilpari/pari/choixfavori/choixfa
     ClassementgeneralpariComponent,
     ClassementamipariComponent,
     AncienpariComponent,
+    ChoixfavoriComponent,
+    RedirectionComponent,
+    
+    ClassementComponent,
     CreerCompetitionComponent,
-    ChoixfavoriComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +76,7 @@ import { ChoixfavoriComponent } from './pageaccueilpari/pari/choixfavori/choixfa
     MatIconModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

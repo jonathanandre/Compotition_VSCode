@@ -12,6 +12,9 @@ import { PariComponent } from './pageaccueilpari/pari/pari.component';
 import { ClassementgeneralpariComponent } from './pageaccueilpari/classementgeneralpari/classementgeneralpari.component';
 import { ClassementamipariComponent } from './pageaccueilpari/classementamipari/classementamipari.component';
 import { AncienpariComponent } from './pageaccueilpari/ancienpari/ancienpari.component';
+import { RedirectionComponent } from './pageaccueilpari/pari/choixfavori/redirection/redirection.component';
+
+import { ClassementComponent } from './classement/classement.component';
 
 
 const routes: Routes = [
@@ -27,6 +30,9 @@ const routes: Routes = [
   {path: 'classementgeneralpari', component:  ClassementgeneralpariComponent},
   {path: 'classementamipari', component:  ClassementamipariComponent},
   {path: 'ancienpari', component:  AncienpariComponent},
+  {path: 'redirection', component:  RedirectionComponent},
+  
+  {path: 'classement', component:  ClassementComponent},
 
 
 
