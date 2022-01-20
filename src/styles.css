@@ -48,3 +48,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .pagemin{
     min-height:92%;
 }
+
+.row{
+    width: 100%;
+}
