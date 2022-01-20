@@ -32,6 +32,7 @@ import { AncienpariComponent } from './pageaccueilpari/ancienpari/ancienpari.com
 import { CreerCompetitionComponent } from './groupe/ce-groupe/creer-competition/creer-competition.component';
 import { ChoixfavoriComponent } from './pageaccueilpari/pari/choixfavori/choixfavori.component';
 import { ClassementComponent } from './classement/classement.component';
+import { InviteGroupeComponent } from './groupe/ce-groupe/invite-groupe/invite-groupe.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ClassementComponent } from './classement/classement.component';
     ChoixfavoriComponent,
     ClassementComponent,
     CreerCompetitionComponent,
+    InviteGroupeComponent,
   ],
   imports: [
     BrowserModule,
