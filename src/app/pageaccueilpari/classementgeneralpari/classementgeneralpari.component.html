@@ -14,9 +14,14 @@
             </thead>
             <tbody style="background-color: rgb(197, 255, 191);">
                 <tr *ngFor="let c of classementGlobal,let index = index">
-                    <td>{{index+1}}</td>
-                    <td>{{c.login}}</td>
-                    <td>{{c.pointsPari}}</td>
+                    <td *ngIf="nouse(c)">{{index+1}}</td>
+                    <td *ngIf="nouse(c)">{{c.login}}</td>
+                    <td *ngIf="nouse(c)">{{c.pointsPari}}</td>
+
+                    <td style="background-color: coral;" *ngIf="use(c)">{{index+1}}</td>
+                    <td style="background-color: coral;"*ngIf="use(c)">{{c.login}}</td>
+                    <td style="background-color: coral;"*ngIf="use(c)">{{c.pointsPari}}</td>
+    
     
                 </tr>
             </tbody>

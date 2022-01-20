@@ -1,4 +1,4 @@
-<main style="height: 470px;background-color: rgb(255, 248, 146);">
+<main style="height: auto;background-color: rgb(255, 248, 146);">
     <div style="margin-left: auto;" class="row">
         <div style="text-align: center; margin-left: 0%; " class="table col-sm-4 ">
             <div style="width: 70%;margin: auto;">
@@ -14,8 +14,7 @@
 
             <div style="text-align: center;margin: auto">
                 <br>
-                <br>
-                <br>
+
                 <br>
                 <br>
                 <br>
@@ -24,6 +23,8 @@
                 <br>
                 <a style=" color: rgb(7, 106, 139);" (click)="revenir()">revenir à la page
                     principale des paris</a>
+                <br>
+                <br>
             </div>
         </div>
 
@@ -33,14 +34,14 @@
 
             <table style="text-align: center; width: 90%;margin: 0;">
                 <thead style="background-color: rgb(140, 248, 130);" class="thead-">
-                    
+
                     <tr>
-                        <th>Activité</th>
-                        <th>Lieu</th>
-                        <th>Pronostic</th>
-                        <th>Résultat</th>
-                        <th>Points gagnés</th>
-                        <th></th>
+                        <th width="15%">Activité</th>
+                        <th width="30%">Lieu</th>
+                        <th width="10%">Pronostic</th>
+                        <th width="15%">Résultat</th>
+                        <th width="15%">Points gagnés</th>
+                        <th width="15%"></th>
                     </tr>
                 </thead>
                 <tbody style="background-color: rgb(197, 255, 191);">
@@ -48,16 +49,24 @@
                         <td>{{v.competition.activite}}</td>
                         <td>{{v.competition.lieu}}</td>
                         <td>{{v.favori.login}}</td>
-                        
+
                         <td *ngIf="v.competition.vainqueur!=null">{{v.competition.vainqueur.login}}</td>
                         <td *ngIf="v.competition.vainqueur==null"></td>
                         <td *ngIf="v.competition.vainqueur==null"></td>
-                        <td style="color: red;font-weight: bold;" *ngIf="v.competition.vainqueur!=null && v.favori.login!=v.competition.vainqueur.login">+0</td>
-                        <td style="color: rgba(0, 139, 0, 0.993); font-weight: bold;" *ngIf="v.competition.vainqueur!=null && v.favori.login==v.competition.vainqueur.login">+10</td>
-                        <td ><button (click)="annulervote(v.competition.id)" *ngIf="temps(v.competition.dateDebut)"style="background-color: blue;color: white;">Annuler</button></td>
+                        <td style="color: red;font-weight: bold;"
+                            *ngIf="v.competition.vainqueur!=null && v.favori.login!=v.competition.vainqueur.login">+0
+                        </td>
+                        <td style="color: rgba(0, 139, 0, 0.993); font-weight: bold;"
+                            *ngIf="v.competition.vainqueur!=null && v.favori.login==v.competition.vainqueur.login">+10
+                        </td>
+                        <td><button (click)="annulervote(v.competition.id)" *ngIf="temps(v.competition.dateDebut)"
+                                style="background-color: blue;color: white;">Annuler</button></td>
                     </tr>
                 </tbody>
             </table>
+            <br>
+            
+            <p></p>
         </div>
     </div>
 
