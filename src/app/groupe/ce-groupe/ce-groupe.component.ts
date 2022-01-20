@@ -112,10 +112,10 @@ export class CeGroupeComponent implements OnInit {
   }
 
   participe(c: any) {
-    //  this.http.get('http://localhost:8087/competition/' + c.id + '/participation/utilisateur/boolean/' + this.user.login).subscribe({
-    //    next: (data)=> {console.log("participe ou participe pas : ",data); this.participation = data ;},
-    //    error: (err)=> {console.log(err)}
-    //  })
+      // this.http.get('http://localhost:8087/competition/' + c.id + '/participation/utilisateur/boolean/' + this.user.login).subscribe({
+      //   next: (data)=> {console.log("participe ou participe pas : ",data); this.participation = data ;},
+      //   error: (err)=> {console.log(err)}
+      // })
     console.log("participation", this.participation);
     if (this.participation==false) {
       return false;
