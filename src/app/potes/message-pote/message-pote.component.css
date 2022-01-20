@@ -91,3 +91,12 @@
     -webkit-box-shadow: none;
     box-shadow: none;
   }
+
+  .modal-dialog{
+    overflow-y: initial;
+}
+
+.modal-body{
+    max-height: 60vh;
+    overflow-y: auto;
+}
