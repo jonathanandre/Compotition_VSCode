@@ -40,7 +40,7 @@ export class CeGroupeComponent implements OnInit {
   modifierGroupe(){
     const myDialog = this.dialog.open(ModifierGroupeComponent);
     myDialog.afterClosed().subscribe(result => {
-      this.reloadComponent();
+      this.reloadCurrentRoute();
     });
   }
   
@@ -49,6 +49,14 @@ export class CeGroupeComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate([currentUrl]);
+  }
+
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+        console.log(currentUrl);
+    });
   }
   
   getMembres(){
@@ -71,28 +79,28 @@ export class CeGroupeComponent implements OnInit {
     this.auth.setMembre(membre)
     const myDialog = this.dialog.open(SupprimerMembreComponent);
     myDialog.afterClosed().subscribe(result => {
-      this.reloadComponent();
+      this.reloadCurrentRoute();
     });
   }
 
   invitationGroupe(){
     const myDialog = this.dialog.open(InvitationGroupeComponent);
     myDialog.afterClosed().subscribe(result => {
-      this.reloadComponent();
+      this.reloadCurrentRoute();
     });
   }
 
   inviteGroupe(){
     const myDialog = this.dialog.open(InviteGroupeComponent);
     myDialog.afterClosed().subscribe(result => {
-      this.reloadComponent();
+      this.reloadCurrentRoute();
     });
   }
 
   nouvelleCompet(){
     const myDialog = this.dialog.open(CreerCompetitionComponent);
     myDialog.afterClosed().subscribe(result => {
-      this.reloadComponent();
+      this.reloadCurrentRoute();
     });
   }
 

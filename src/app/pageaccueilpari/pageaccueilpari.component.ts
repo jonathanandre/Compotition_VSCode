@@ -27,7 +27,7 @@ export class PageaccueilpariComponent implements OnInit {
   }
 
   redirigerclassementamipari(){
-    this.router.navigateByUrl("classementgeneralpari");
+    this.router.navigateByUrl("classementamipari");
 
   }
 

@@ -47,7 +47,7 @@ export class GroupeComponent implements OnInit {
   callNouveauGroupe(){
     const myDialog = this.dialog.open(CreerGroupeComponent);
     myDialog.afterClosed().subscribe(result => {
-      this.reloadComponent();
+      this.reloadCurrentRoute();
     });
   }
 
@@ -58,10 +58,18 @@ export class GroupeComponent implements OnInit {
     this.router.navigate([currentUrl]);
   }
 
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+        console.log(currentUrl);
+    });
+  }
+
   callInvitationRecu(){
     const myDialog = this.dialog.open(InvitationRecuComponent);
     myDialog.afterClosed().subscribe(result => {
-      this.reloadComponent();
+      this.reloadCurrentRoute();
     });
   }
 
