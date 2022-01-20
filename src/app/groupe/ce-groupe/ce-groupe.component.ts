@@ -114,20 +114,28 @@ export class CeGroupeComponent implements OnInit {
   rejoindreCompet(c: any) {
     let participe = {utilisateur: this.user, competition: c};
     this.http.post('http://localhost:8087/competition/participation/ajouter', participe).subscribe({
-      next: (data)=> {console.log('competition rejoint', data);  },
+      next: (data)=> {console.log('competition rejoint', data); this.reloadComponent(); },
       error: (err)=> {console.log(err)}
     })
   }
 
-  participes(c: any) {
-    console.log(2)
-
-    return true
+  participe(c: any) {
+    //  this.http.get('http://localhost:8087/competition/' + c.id + '/participation/utilisateur/boolean/' + this.user.login).subscribe({
+    //    next: (data)=> {console.log("participe ou participe pas : ",data); this.participation = data ;},
+    //    error: (err)=> {console.log(err)}
+    //  })
+    console.log("participation", this.participation);
+    if (this.participation==false) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   quitterCompet(c: any) {
     this.http.delete('http://localhost:8087/competition/' + c.id + '/participation/supprimer/' + this.user.login).subscribe({
       next: (data)=> {console.log('participation a la compet supprimee', data); this.reloadComponent(); },
+      error: (err)=> {console.log(err)}
     })
   }
 

@@ -128,12 +128,12 @@
                 <th>{{c.format}}</th>
                 <th>{{c.description}}</th>
                 <th>{{c.pari}}</th>
-                <th *ngIf="!participes(c)">
+                <th *ngIf="!participe(c)">
                     <button class="btn btn-primary" (click)="rejoindreCompet(c)">
                         Rejoindre
                     </button>
                 </th>
-                <th *ngIf="participes(c)">
+                <th *ngIf="participe(c)">
                     <button class="btn btn-primary" (click)="quitterCompet(c)">
                         Se désinscrire
                     </button>
