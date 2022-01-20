@@ -14,6 +14,7 @@ import { ClassementamipariComponent } from './pageaccueilpari/classementamipari/
 import { AncienpariComponent } from './pageaccueilpari/ancienpari/ancienpari.component';
 import { RedirectionComponent } from './pageaccueilpari/pari/choixfavori/redirection/redirection.component';
 
+import { ClassementComponent } from './classement/classement.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'groupe', component: GroupeComponent},
   {path: 'creer-groupe', component: CreerGroupeComponent},
   {path: 'groupe/ce-groupe', component: CeGroupeComponent},
+  {path: 'tournoi/ce-tournoi', component: CeTournoiComponent},
   {path: 'pageaccueilpari', component: PageaccueilpariComponent},
   {path: 'pari', component: PariComponent},
   {path: 'classementgeneralpari', component:  ClassementgeneralpariComponent},
@@ -30,6 +32,7 @@ const routes: Routes = [
   {path: 'ancienpari', component:  AncienpariComponent},
   {path: 'redirection', component:  RedirectionComponent},
   
+  {path: 'classement', component:  ClassementComponent},
 
 
 

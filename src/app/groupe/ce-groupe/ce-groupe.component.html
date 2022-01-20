@@ -1,10 +1,10 @@
 <div class="row mt-3">
-    <div class="col-sm-4"></div>
-    <div class="titre container col-sm-4">
-        <h1 class="text-center">{{ groupe.nom }}</h1>
-        <h3 class="text-center">{{groupe.description}}</h3>
+    <div class="col-sm-3"></div>
+    <div class="bloc-titre container col-sm-6 text-center">
+        <div class="titre">{{ groupe.nom }}</div>
+        <div class="description">{{groupe.description}}</div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <br>
         <button mat-fab color="accent" (click)="modifierGroupe()">
             <mat-icon>edit</mat-icon>
@@ -55,10 +55,37 @@
     </div>
 
     <div class="col-sm-6 text-center">
-        <div class="titre container mt-3 col-sm-10">
-            <h1>*Classement du groupe*</h1>
-        </div>
-        <br>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th width="30%">Position</th>
+                    <th width="40%">Pseudo</th>
+                    <th width="30%">Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cg of classementGroupe; let index = index">
+                    <td>
+                        <div *ngIf=" index+1 == 1 " ><img src="assets/images/medal-gold.png" height="100px" width="100px" /></div>
+                        <div *ngIf=" index+1 == 2 "><img src="assets/images/medal-silver.png" height="70px" width="70px" /></div>
+                        <div *ngIf=" index+1 == 3 "><img src="assets/images/medal-bronze.png" height="50px" width="50px" /></div>
+                        <div *ngIf=" index+1 > 3 ">{{index+1}}<sup>ème</sup> </div>
+                    </td>
+                    <td><strong>
+                        <div *ngIf=" index+1 == 1 " class="first">{{ cg.utilisateur.login }}</div>
+                        <div *ngIf=" index+1 == 2 " class="second">{{ cg.utilisateur.login }}</div>
+                        <div *ngIf=" index+1 == 3 " class="third">{{ cg.utilisateur.login }}</div>
+                        <div *ngIf=" index+1 > 3 ">{{ cg.utilisateur.login }}</div>
+                    </strong></td>
+                    <td>
+                        <div *ngIf=" index+1 == 1 " class="first">{{ cg.pointsParUtilisateurDansGroupe }}</div>
+                        <div *ngIf=" index+1 == 2 " class="second">{{ cg.pointsParUtilisateurDansGroupe }}</div>
+                        <div *ngIf=" index+1 == 3 " class="third">{{ cg.pointsParUtilisateurDansGroupe }}</div>
+                        <div *ngIf=" index+1 > 3 ">{{ cg.pointsParUtilisateurDansGroupe }}</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 
@@ -69,9 +96,6 @@
         <mat-icon>star</mat-icon>
     </button>
     <strong class="text-info">&nbsp;&nbsp; Nouvelle compétition </strong>
-    <div class="titre container mt-3 col-sm-10">
-        <h1>*Affichage des compétitions*</h1>
-    </div>
 </div>
 
 <div class="container mt-5">

@@ -95,3 +95,12 @@
   .chat-name {
     font-weight: bold;
   }
+
+  .modal-dialog{
+    overflow-y: initial;
+}
+
+.modal-body{
+    max-height: 60vh;
+    overflow-y: auto;
+}
