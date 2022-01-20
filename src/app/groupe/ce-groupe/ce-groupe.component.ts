@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ConvGroupeComponent } from './conv-groupe/conv-groupe.component';
 import { CreerCompetitionComponent } from './creer-competition/creer-competition.component';
 import { InvitationGroupeComponent } from './invitation-groupe/invitation-groupe.component';
+import { InviteGroupeComponent } from './invite-groupe/invite-groupe.component';
 import { ModifierGroupeComponent } from './modifier-groupe/modifier-groupe.component';
 import { SupprimerMembreComponent } from './supprimer-membre/supprimer-membre.component';
 
@@ -76,6 +77,13 @@ export class CeGroupeComponent implements OnInit {
 
   invitationGroupe(){
     const myDialog = this.dialog.open(InvitationGroupeComponent);
+    myDialog.afterClosed().subscribe(result => {
+      this.reloadComponent();
+    });
+  }
+
+  inviteGroupe(){
+    const myDialog = this.dialog.open(InviteGroupeComponent);
     myDialog.afterClosed().subscribe(result => {
       this.reloadComponent();
     });
