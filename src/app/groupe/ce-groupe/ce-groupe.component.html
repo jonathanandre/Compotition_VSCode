@@ -16,11 +16,17 @@
 <div class="row mt-5">
     <div class="col-sm-6 text-center">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-3 text-right">
+                <strong class="text-info">Inviter &nbsp;&nbsp;</strong>
                 <button mat-fab color="accent" (click)="invitationGroupe()">
                     <mat-icon>person_add</mat-icon>
                 </button>
-                <strong class="text-info">&nbsp;&nbsp; Inviter </strong>
+            </div>
+            <div class="col-sm-3">
+                <button mat-fab color="accent" (click)="inviteGroupe()">
+                    <mat-icon>backspace</mat-icon>
+                </button>
+                <strong class="text-info">&nbsp;&nbsp; Désinviter </strong>
             </div>
             <div class="col-sm-6">
                 <button class="btn btn-primary" (click)="callConvGroupe()">
@@ -129,8 +135,16 @@
                 </th>
                 <th *ngIf="participe(c)">
                     <button class="btn btn-primary" (click)="quitterCompet(c)">
-                        quitter
+                        Se désinscrire
                     </button>
+                </th>
+                <th *ngIf="isOrganisateur(c)">
+                    <button class="btn btn-primary" (click)="supprimerCompet(c)">
+                        Annuler la compétition
+                    </button>
+                    <div *ngIf="c.id==msgtrue" class="text-danger"> 
+                    {{ msg }}
+                    </div>
                 </th>
             </tr>
         </tbody>

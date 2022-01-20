@@ -35,6 +35,7 @@ import { RedirectionComponent } from './pageaccueilpari/pari/choixfavori/redirec
 import { DatePipe } from '@angular/common'
 
 import { ClassementComponent } from './classement/classement.component';
+import { InviteGroupeComponent } from './groupe/ce-groupe/invite-groupe/invite-groupe.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { ClassementComponent } from './classement/classement.component';
     
     ClassementComponent,
     CreerCompetitionComponent,
+    InviteGroupeComponent,
   ],
   imports: [
     BrowserModule,

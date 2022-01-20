@@ -1,0 +1,23 @@
+<div class="text-center border border-light p-5">
+    <h1>Vous avez envoyé {{nbrInvitEnvoye}} invitation(s)</h1>
+    
+    <div class="container mt-3">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Login</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ie of invitEnvoye">
+                    <td><strong>{{ie.utilisateur.login}}</strong></td>
+                    <td>
+                        <button mat-raised-button color="accent" (click)="annuleInvit(ie)">
+                            <mat-icon>clear</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

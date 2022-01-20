@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ConvGroupeComponent } from './conv-groupe/conv-groupe.component';
 import { CreerCompetitionComponent } from './creer-competition/creer-competition.component';
 import { InvitationGroupeComponent } from './invitation-groupe/invitation-groupe.component';
+import { InviteGroupeComponent } from './invite-groupe/invite-groupe.component';
 import { ModifierGroupeComponent } from './modifier-groupe/modifier-groupe.component';
 import { SupprimerMembreComponent } from './supprimer-membre/supprimer-membre.component';
 
@@ -23,6 +24,9 @@ export class CeGroupeComponent implements OnInit {
   competitions: any
   user: any
   participation: any
+  date: any
+  msg: any
+  msgtrue: any
   constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private auth : AuthService) { }
 
   ngOnInit(): void {
@@ -78,6 +82,13 @@ export class CeGroupeComponent implements OnInit {
     });
   }
 
+  inviteGroupe(){
+    const myDialog = this.dialog.open(InviteGroupeComponent);
+    myDialog.afterClosed().subscribe(result => {
+      this.reloadComponent();
+    });
+  }
+
   nouvelleCompet(){
     const myDialog = this.dialog.open(CreerCompetitionComponent);
     myDialog.afterClosed().subscribe(result => {
@@ -122,6 +133,30 @@ export class CeGroupeComponent implements OnInit {
 
   callConvGroupe() {
     const myDialog = this.dialog.open(ConvGroupeComponent);
+  }
+
+  isOrganisateur(c: any) {
+    if (this.user.id==c.organisateur.id) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  supprimerCompet(c: any) {
+    //this.date = new Date();
+    // console.log('test date d aujourdhui : ', this.date);
+    console.log('test date d aujourdhui en ms : ', Date.now())
+    console.log('test dateDebut en ms : ', new Date(c.dateDebut).getTime())
+    if(Date.now()<new Date(c.dateDebut).getTime()){
+      this.http.delete('http://localhost:8087/competition/supprimer/' + c.id).subscribe({
+        next: (data)=> {console.log('competition supprimee', data); this.reloadComponent(); },
+        error: (err)=> {console.log(err)}
+      })
+    } else {
+      this.msg = "suppression impossible après le début de la compétition";
+      this.msgtrue = c.id;
+    }
   }
 
 }
