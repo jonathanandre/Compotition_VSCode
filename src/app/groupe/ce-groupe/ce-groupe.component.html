@@ -135,7 +135,12 @@
                 </th>
                 <th *ngIf="participe(c)">
                     <button class="btn btn-primary" (click)="quitterCompet(c)">
-                        quitter
+                        Se désinscrire
+                    </button>
+                </th>
+                <th *ngIf="isOrganisateur">
+                    <button class="btn btn-primary" (click)="supprimerCompet(c)">
+                        Annuler la compétition
                     </button>
                 </th>
             </tr>

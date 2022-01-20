@@ -20,6 +20,7 @@ export class PageaccueilpariComponent implements OnInit {
 
   }
 
+
   redirigerclassementgeneralpari(){
     this.router.navigateByUrl("classementgeneralpari");
 

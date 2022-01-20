@@ -24,6 +24,7 @@ export class CeGroupeComponent implements OnInit {
   competitions: any
   user: any
   participation: any
+  date: any
   constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private auth : AuthService) { }
 
   ngOnInit(): void {
@@ -130,6 +131,19 @@ export class CeGroupeComponent implements OnInit {
 
   callConvGroupe() {
     const myDialog = this.dialog.open(ConvGroupeComponent);
+  }
+
+  isOrganisateur(c: any) {
+    if (this.user.id==c.organisateur.id) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  supprimerCompet(c: any) {
+    this.date = new Date();
+    console.log('test date d aujourdhui : ', this.date);
   }
 
 }
