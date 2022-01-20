@@ -31,6 +31,7 @@ import { ClassementamipariComponent } from './pageaccueilpari/classementamipari/
 import { AncienpariComponent } from './pageaccueilpari/ancienpari/ancienpari.component';
 import { ChoixfavoriComponent } from './pageaccueilpari/pari/choixfavori/choixfavori.component';
 import { RedirectionComponent } from './pageaccueilpari/pari/choixfavori/redirection/redirection.component';
+import { DatePipe } from '@angular/common'
 
 
 @NgModule({
@@ -71,7 +72,7 @@ import { RedirectionComponent } from './pageaccueilpari/pari/choixfavori/redirec
     MatIconModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

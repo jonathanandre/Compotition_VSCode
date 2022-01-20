@@ -29,6 +29,14 @@ export class AncienpariComponent implements OnInit {
     })
   }
 
+  temps(value:any){
+    if(Date.now()>new Date(value).getTime()){
+      return false
+    }else{
+      return true
+    }
+  }
+
   annulervote(value:any){
 
     this.http.delete('http://localhost:8087/votepari/'+value+'/'+this.auth.getUserConnect().id).subscribe({

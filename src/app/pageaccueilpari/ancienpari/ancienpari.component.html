@@ -50,7 +50,7 @@
                         <td>{{v.favori.login}}</td>
                         <td>à faire</td>
                         <td>à faire</td>
-                        <td ><button (click)="annulervote(v.competition.id)" *ngIf="v.competition.pari"style="background-color: blue;color: white;">Annuler</button></td>
+                        <td ><button (click)="annulervote(v.competition.id)" *ngIf="temps(v.competition.dateDebut)"style="background-color: blue;color: white;">Annuler</button></td>
                     </tr>
                 </tbody>
             </table>

@@ -4,8 +4,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ChoixfavoriComponent } from './choixfavori/choixfavori.component';
+import { DatePipe } from '@angular/common';
+
 var liste: any[] = [];
 var a:any;
+var date: Date;
+
 
 
 @Component({
@@ -18,9 +22,11 @@ export class PariComponent implements OnInit {
   votesparis:any;
   listes:any;
 
-  constructor(private http: HttpClient, private auth: AuthService, private router: Router, private dialog: MatDialog) { }
+  constructor(public datepipe: DatePipe,private http: HttpClient, private auth: AuthService, private router: Router, private dialog: MatDialog) { }
 
   ngOnInit(): void {
+
+    
     liste=[];
     console.log('reinitialise');
     this.competitionpariable();
@@ -50,10 +56,14 @@ export class PariComponent implements OnInit {
   fin(value1:any,value2:any){
 
     for (var val1 in value1){
-      console.log("value1",value1[val1])
+      date=value1[val1].dateDebut
       a=0;
+      if(Date.now()>new Date(date).getTime()){
+        a=1
+      }
+      
+      
       for (var val2 in value2){
-        console.log("value2",value2[val2])
         if(value1[val1].id== value2[val2].competition.id){
           a=1
 
