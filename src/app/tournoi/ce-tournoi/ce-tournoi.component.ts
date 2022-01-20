@@ -12,17 +12,18 @@ import { AuthService } from 'src/app/services/auth.service';
 export class CeTournoiComponent implements OnInit {
   url: any
   competitions: any
-  constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private auth : AuthService) { }
+  constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private auth: AuthService) { }
 
-  ngOnInit(): void {this.competitions = this.auth.competitions
-    console.log('Et la competition est : ', this.competitions)
+  ngOnInit(): void {
+    this.competitions = this.auth.competitions;
+    console.log('Et la competition est : ', this.competitions);
     this.getCompetitionById();
   }
 
   getCompetitionById() {
     this.http.get('http://localhost:8087/competition/informations/' + this.competitions.id).subscribe({
-      next: (data)=> {console.log('competitions du groupe', data); this.competitions = data},
-      error: (err)=> {console.log(err)}
+      next: (data) => { console.log('competitions du groupe', data); this.competitions = data },
+      error: (err) => { console.log(err) }
     });
   }
 }

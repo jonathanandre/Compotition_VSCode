@@ -58,8 +58,8 @@ function tirage_aleatoire() {
 function enregistrer() {
         $.ajax({
                 async: true,
-                type: "POST",
-                url: "/php/enregistre.php",
+                type: "PUT",
+                url: "",
                 data: JSON.stringify(infos),
                 datatype: "json",
                 success: function () { alert("Enregistrement réussi"); },
@@ -100,8 +100,8 @@ function affiche_tournoi() {
         $('#tournoi').bracket(
                 {
                         teamWidth: 90,
-                        disableToolbar: true,
-                        disableTeamEdit: true,
+                        disableToolbar: false,
+                        disableTeamEdit: false,
                         centerConnectors: true,
                         init: infos,
                         save: sauver,
@@ -113,12 +113,23 @@ function affiche_tournoi() {
 }
 $(document).ready(function () {
         $.ajaxSetup({ cache: false });
-        $.getJSON("http://localhost:8087/duel/natif", function (data) {
-                infos = {"teams":[], "results":[]};
+        //var infos = {"teams":[], "results":[]};
+        $.getJSON("http://localhost:8087/duel/natif/adversaire", function (data) {
+                infos = { "teams": [], "results": [] };
                 infos.teams = data;
                 console.log(infos);
                 affiche_tournoi();
         });
+        /* $.getJSON("http://localhost:8087/duel/natif/score", function (data) {
+                 infos.results = data;
+                 console.log(infos);
+                 affiche_tournoi();
+         });*/
+
+
+
+
+
         $("#ajouter").click(ajoute_participant);
         $("#aleatoire").click(tirage_aleatoire);
         $("#enregistrer").click(enregistrer);
