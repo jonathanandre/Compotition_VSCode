@@ -48,7 +48,7 @@
                         <td>{{v.competition.activite}}</td>
                         <td>{{v.competition.lieu}}</td>
                         <td>{{v.favori.login}}</td>
-                        <td>à faire</td>
+                        <td>{{v.competition.vainqueur}}</td>
                         <td>à faire</td>
                         <td ><button (click)="annulervote(v.competition.id)" *ngIf="temps(v.competition.dateDebut)"style="background-color: blue;color: white;">Annuler</button></td>
                     </tr>
