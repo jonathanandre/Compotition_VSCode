@@ -1,30 +1,39 @@
-<div *ngIf="!auth.isConnected()" class=" peach-gradient">
-    <div class="text-center compotition">COMPOTITION</div>
-    <ul class="nav py-2 mb-4 mb-md-0 font-weight-bold  nav-fill w-100">
-        <li class="nav-item"><a class="nav-link active white-text" routerLink="">Classement public</a></li>
-        <li class="nav-item"><a class="nav-link white-text" routerLink="">Classement des paris</a></li>
-        <li class="nav-item"><button class="btn btn-primary btn-deep-orange" (click)="callMyConnexion()">
-                se connecter
+<div class="pagemin">
+    <div *ngIf="!auth.isConnected()" class=" peach-gradient">
+        <div class="text-center compotition">COMPOTITION</div>
+        <ul class="nav py-2 mb-4 mb-md-0 font-weight-bold  nav-fill w-100">
+            <li class="nav-item"><a class="nav-link active white-text" routerLink="">Classement public</a></li>
+            <li class="nav-item"><a class="nav-link white-text" routerLink="">Classement des paris</a></li>
+            <li class="nav-item"><button class="btn btn-primary btn-deep-orange" (click)="callMyConnexion()">
+                    se connecter
+                </button></li>
+            <li class="nav-item"><button class="btn btn-primary btn-deep-orange" (click)="callInscription()">
+                    S'inscrire
+                </button></li>
+        </ul>
+    </div>
+    
+    <div *ngIf="auth.isConnected()" class=" peach-gradient">
+        <div class="text-center compotition">COMPOTITION</div>
+        <ul class="nav py-2 mb-4 mb-md-0 font-weight-bold  nav-fill w-100">
+            <li class="nav-item"><a class="nav-link white-text" routerLink="tournoi">Competitions</a></li>
+            <li class="nav-item"><a class="nav-link white-text" routerLink="potes">Mes Potes</a></li>
+            <li class="nav-item"><a class="nav-link white-text" routerLink="groupe">Mes Groupes</a></li>
+            <li class="nav-item"><a class="nav-link white-text" routerLink="classement">Classement</a></li>
+            <li class="nav-item"><a class="nav-link white-text" routerLink="pageaccueilpari">Evenement Pari</a></li>
+            <li class="nav-item"><a class="nav-link white-text" routerLink="mon-profil">Mon profil</a></li>
+            <li class="nav-item"><button class="btn btn-primary btn-deep-orange" (click)="auth.deconnexion()">
+                <mat-icon>power_settings_new</mat-icon>
             </button></li>
-        <li class="nav-item"><button class="btn btn-primary btn-deep-orange" (click)="callInscription()">
-                S'inscrire
-            </button></li>
-    </ul>
-</div>
-
-<div *ngIf="auth.isConnected()" class=" peach-gradient">
-    <div class="text-center compotition">COMPOTITION</div>
-    <ul class="nav py-2 mb-4 mb-md-0 font-weight-bold  nav-fill w-100">
-        <li class="nav-item"><a class="nav-link white-text" routerLink="tournoi">Competitions</a></li>
-        <li class="nav-item"><a class="nav-link white-text" routerLink="potes">Mes Potes</a></li>
-        <li class="nav-item"><a class="nav-link white-text" routerLink="groupe">Mes Groupes</a></li>
-        <li class="nav-item"><a class="nav-link white-text" routerLink="classement">Classement</a></li>
-        <li class="nav-item"><a class="nav-link white-text" routerLink="pageaccueilpari">Evenement Pari</a></li>
-        <li class="nav-item"><a class="nav-link white-text" routerLink="mon-profil">Mon profil</a></li>
-        <li class="nav-item"><button class="btn btn-primary btn-deep-orange" (click)="auth.deconnexion()">
-            <mat-icon>power_settings_new</mat-icon>
-        </button></li>
-    </ul>
-</div>
-
+        </ul>
+    </div>
+    
 <router-outlet></router-outlet>
+
+</div>
+
+<footer class="page-footer font-small peach-gradient ">
+    <div class="text-center py-3">
+      Made by Dev-7-2021
+    </div>
+</footer>
