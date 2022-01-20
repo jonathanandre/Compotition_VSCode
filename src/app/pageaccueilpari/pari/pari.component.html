@@ -30,15 +30,23 @@
             <table style="text-align: center; width: 70%;margin: auto;">
                 <thead style="background-color: rgb(140, 248, 130);" class="thead-">
                     <tr>
-
-
-                        <th>Competitions disponibles</th>
-
+                        <th style="background-color: rgb(15, 128, 5);" colspan="3">Competitions disponibles</th>
+                    </tr>
+                    <tr>
+                        <th >Activité</th>
+                        <th>Lieu</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody style="background-color: rgb(197, 255, 191);">
-                    <tr>
-                        <td>Competition 1</td>
+                    <tr *ngFor="let c of competitions">
+                        <td>{{c.activite}}</td>
+                        <td>{{c.lieu}}</td>
+                        <td>
+                            <button style="background-color: blue;color: white;" (click)="pari(c)">
+                                Parier
+                            </button>
+                        </td>
 
                     </tr>
                 </tbody>

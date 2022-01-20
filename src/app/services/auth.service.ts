@@ -9,6 +9,7 @@ export class AuthService {
 
   ceGgroupe: any = null;
   membre:any = null;
+  
 
   competitions:any = null;
 
@@ -29,6 +30,12 @@ export class AuthService {
 
   setMembre(membreTransmis: any){
     this.membre = membreTransmis
+  }
+
+  
+
+  getCompetition(){
+    return this.competitions 
   }
 
   setUserLocalStorage(u: any){

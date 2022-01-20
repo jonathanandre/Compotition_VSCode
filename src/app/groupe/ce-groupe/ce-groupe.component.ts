@@ -16,6 +16,7 @@ import { SupprimerMembreComponent } from './supprimer-membre/supprimer-membre.co
 export class CeGroupeComponent implements OnInit {
 
   appartGroupe: any
+  classementGroupe: any
   url: any
   groupe: any
   competitions: any
@@ -24,10 +25,10 @@ export class CeGroupeComponent implements OnInit {
   constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private auth : AuthService) { }
 
   ngOnInit(): void {
-    console.log('ce groupe :', this.auth.getGroupe())
     this.groupe = this.auth.getGroupe()
     this.getAllCompetDuGroupe();
     this.getMembres();
+    this.getClassement();
     this.user = this.auth.getUserConnect();
   }
 
@@ -49,6 +50,14 @@ export class CeGroupeComponent implements OnInit {
     this.url = 'http://localhost:8087/groupes/classement/' + this.auth.getGroupe().id
     this.http.get(this.url).subscribe({
     next : (data) => { this.appartGroupe = data },
+    error : (err) => { console.log(err) }
+    });
+  }
+  
+  getClassement(){
+    this.url = 'http://localhost:8087/groupe/classement-decroissant/' + this.auth.getGroupe().id
+    this.http.get(this.url).subscribe({
+    next : (data) => { this.classementGroupe = data },
     error : (err) => { console.log(err) }
     });
   }

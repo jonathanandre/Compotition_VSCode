@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { ChoixfavoriComponent } from './choixfavori/choixfavori.component';
 
 
 @Component({
@@ -11,8 +12,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./pari.component.css']
 })
 export class PariComponent implements OnInit {
+  competitions: any;
 
-  constructor(private http: HttpClient,private router: Router,private auth: AuthService,) { }
+  constructor(private http: HttpClient, private auth: AuthService, private router: Router, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.competitionpariable();
@@ -26,6 +28,11 @@ export class PariComponent implements OnInit {
 
   competitionpariable(){
 
+    this.http.get('http://localhost:8087/competition/publique/pariable').subscribe({
+      next: (data) => {this.competitions=data}
+    })
+    
+    
   }
 
   competitionparieesparuser(){
@@ -33,4 +40,12 @@ export class PariComponent implements OnInit {
 
   }
 
+  pari(value:any){
+    this.auth.setCompetition(value);
+    const myDialog = this.dialog.open(ChoixfavoriComponent);
+
+    this.ngOnInit();
+  }
+
+  
 }

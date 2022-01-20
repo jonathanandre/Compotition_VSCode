@@ -29,6 +29,7 @@ import { PariComponent } from './pageaccueilpari/pari/pari.component';
 import { ClassementgeneralpariComponent } from './pageaccueilpari/classementgeneralpari/classementgeneralpari.component';
 import { ClassementamipariComponent } from './pageaccueilpari/classementamipari/classementamipari.component';
 import { AncienpariComponent } from './pageaccueilpari/ancienpari/ancienpari.component';
+import { ChoixfavoriComponent } from './pageaccueilpari/pari/choixfavori/choixfavori.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { AncienpariComponent } from './pageaccueilpari/ancienpari/ancienpari.com
     PariComponent,
     ClassementgeneralpariComponent,
     ClassementamipariComponent,
-    AncienpariComponent
+    AncienpariComponent,
+    ChoixfavoriComponent
   ],
   imports: [
     BrowserModule,
