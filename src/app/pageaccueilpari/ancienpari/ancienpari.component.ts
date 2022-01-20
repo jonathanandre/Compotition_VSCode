@@ -25,7 +25,7 @@ export class AncienpariComponent implements OnInit {
   competitionspariees(){
 
     this.http.get('http://localhost:8087/votepari/predicteur/'+this.auth.getUserConnect().id).subscribe({
-      next: (data) => {this.voteparis=data}
+      next: (data) => {this.voteparis=data;console.log(this.voteparis)}
     })
   }
 
