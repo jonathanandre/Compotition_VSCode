@@ -132,10 +132,13 @@
                         Se désinscrire
                     </button>
                 </th>
-                <th *ngIf="isOrganisateur">
+                <th *ngIf="isOrganisateur(c)">
                     <button class="btn btn-primary" (click)="supprimerCompet(c)">
                         Annuler la compétition
                     </button>
+                    <div *ngIf="c.id==msgtrue" class="text-danger"> 
+                    {{ msg }}
+                    </div>
                 </th>
             </tr>
         </tbody>

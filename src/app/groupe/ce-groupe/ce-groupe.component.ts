@@ -24,6 +24,8 @@ export class CeGroupeComponent implements OnInit {
   user: any
   participation: any
   date: any
+  msg: any
+  msgtrue: any
   constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private auth : AuthService) { }
 
   ngOnInit(): void {
@@ -134,8 +136,19 @@ export class CeGroupeComponent implements OnInit {
   }
 
   supprimerCompet(c: any) {
-    this.date = new Date();
-    console.log('test date d aujourdhui : ', this.date);
+    //this.date = new Date();
+    // console.log('test date d aujourdhui : ', this.date);
+    console.log('test date d aujourdhui en ms : ', Date.now())
+    console.log('test dateDebut en ms : ', new Date(c.dateDebut).getTime())
+    if(Date.now()<new Date(c.dateDebut).getTime()){
+      this.http.delete('http://localhost:8087/competition/supprimer/' + c.id).subscribe({
+        next: (data)=> {console.log('competition supprimee', data); this.reloadComponent(); },
+        error: (err)=> {console.log(err)}
+      })
+    } else {
+      this.msg = "suppression impossible après le début de la compétition";
+      this.msgtrue = c.id;
+    }
   }
 
 }
