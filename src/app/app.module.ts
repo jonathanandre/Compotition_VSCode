@@ -30,6 +30,7 @@ import { ClassementgeneralpariComponent } from './pageaccueilpari/classementgene
 import { ClassementamipariComponent } from './pageaccueilpari/classementamipari/classementamipari.component';
 import { AncienpariComponent } from './pageaccueilpari/ancienpari/ancienpari.component';
 import { ChoixfavoriComponent } from './pageaccueilpari/pari/choixfavori/choixfavori.component';
+import { ClassementComponent } from './classement/classement.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ChoixfavoriComponent } from './pageaccueilpari/pari/choixfavori/choixfa
     ClassementgeneralpariComponent,
     ClassementamipariComponent,
     AncienpariComponent,
-    ChoixfavoriComponent
+    ChoixfavoriComponent,
+    ClassementComponent
   ],
   imports: [
     BrowserModule,
