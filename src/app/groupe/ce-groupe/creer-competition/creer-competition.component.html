@@ -1,0 +1,80 @@
+<p class="h4 mb-4 modal-dialog">Nouvelle Compétition</p>
+<div class="modal-body">
+<!-- Default form register -->
+<form #competition="ngForm" (ngSubmit)="creerCompet(competition.value)" class="text-center border border-light p-5" >
+
+    
+
+    
+        
+            <label>Début de la compétition</label>
+            <input type="datetime-local" name="dateDebut" [(ngModel)]="user.dateDebut" required class="form-control mb-4">
+            <!-- <div class="text-danger" [hidden]="prenomAct.valid">
+                <p>Saissez la date de début</p>
+            </div> -->
+        
+            <label>Fin de la compétition</label>
+            <input type="datetime-local" name="dateFin" [(ngModel)]="user.dateFin" required class="form-control mb-4">
+            <!-- <div class="text-danger" [hidden]="nomAct.valid">
+                <p>Saissez la date de fin</p>
+            </div> -->
+        
+    
+    
+    
+    <input type="text" name="activite" [(ngModel)]="compet.activite" required class="form-control mb-4" placeholder="activite">
+    <!-- <div class="text-danger" [hidden]="loginAct.valid">
+        <p>Saissez l'activité</p>
+    </div> -->
+
+    
+    <input type="text" name="lieu" [(ngModel)]="compet.lieu" required class="form-control mb-2" placeholder="lieu">
+    <!-- <div class="text-danger" [hidden]="emailAct.valid">
+        <p>Saissez le lieu</p>
+    </div> -->
+    
+    <label>Date limite s'inscription</label>
+    <input type="datetime-local" name="limiteInscription" [(ngModel)]="compet.limiteInscription" required  class="form-control mb-2">
+    <!-- <div class="text-danger" [hidden]="mdpAct.valid">
+        <p>Saissez la date limite d'Inscription</p>
+    </div> -->
+
+    <br>
+    <!-- RADIO BUTTONS -->
+    <label>Selectionner le format de la compétition :</label>
+    <div class="radio">
+        <label>
+            <input type="radio" name="format" value="match" [(ngModel)]="compet.format">
+            Match
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="format" value="tournoi" [(ngModel)]="compet.format">
+            Tournoi
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="format" value="championnat" [(ngModel)]="compet.format">
+            Championnat
+        </label>
+    </div>
+
+    <input type="text" name="description" [(ngModel)]="compet.description" required class="form-control mb-2" placeholder="description">
+    <!-- <div class="text-danger" [hidden]="emailAct.valid">
+        <p>Saissez la description</p>
+    </div> -->
+
+    
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="cbPari" name="pari" [(ngModel)]="compet.pari" ng-true-value="True" ng-false-value="False" >
+        <label class="custom-control-label" for="cbPari">Autoriser Pari</label>
+    </div>
+
+    <!-- Sign up button -->
+    <button [disabled]="!competition.form.valid" class="btn btn-info my-4 btn-block" type="submit">Valider</button>
+
+</form>
+<!-- Default form register -->
+</div>

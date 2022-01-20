@@ -22,6 +22,7 @@ const routes: Routes = [
   {path: 'groupe', component: GroupeComponent},
   {path: 'creer-groupe', component: CreerGroupeComponent},
   {path: 'groupe/ce-groupe', component: CeGroupeComponent},
+  {path: 'tournoi/ce-tournoi', component: CeTournoiComponent},
   {path: 'pageaccueilpari', component: PageaccueilpariComponent},
   {path: 'pari', component: PariComponent},
   {path: 'classementgeneralpari', component:  ClassementgeneralpariComponent},
