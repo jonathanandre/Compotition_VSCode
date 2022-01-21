@@ -1,19 +1,5 @@
 <body>
 <div class="pagemin">
-    <div *ngIf="!auth.isConnected()" class=" peach-gradient">
-        <div class="text-center compotition">COMPOTITION</div>
-        <ul class="nav py-2 mb-4 mb-md-0 font-weight-bold  nav-fill w-100">
-            <li class="nav-item"><a class="nav-link active white-text" routerLink="classement">Classement public</a></li>
-            <li class="nav-item"><a class="nav-link white-text" routerLink="classementgeneralpari">Classement des paris</a></li>
-            <li class="nav-item"><button class="btn btn-primary btn-deep-orange" (click)="callMyConnexion()">
-                    se connecter
-                </button></li>
-            <li class="nav-item"><button class="btn btn-primary btn-deep-orange" (click)="callInscription()">
-                    S'inscrire
-                </button></li>
-        </ul>
-    </div>
-    
     <img class="img-bg" src="assets/images/couloir-de-course.jpg"/>
     
     <div class="corps">
