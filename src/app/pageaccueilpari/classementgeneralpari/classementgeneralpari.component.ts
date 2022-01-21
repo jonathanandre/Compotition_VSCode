@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-classementgeneralpari',
@@ -12,7 +12,7 @@ export class ClassementgeneralpariComponent implements OnInit {
 
   classementGlobal: any
 
-  constructor(private router: Router,private http : HttpClient) { }
+  constructor(private router: Router,private auth: AuthService,private http : HttpClient) { }
 
   ngOnInit(): void {
     this.getClassement()
@@ -21,6 +21,14 @@ export class ClassementgeneralpariComponent implements OnInit {
   revenir(){
     this.router.navigateByUrl("pageaccueilpari");
 
+  }
+
+  use(value:any){
+    return value.id==this.auth.getUserConnect().id
+  }
+
+  nouse(value:any){
+    return  (value.id==this.auth.getUserConnect().id)==false
   }
 
   getClassement(){
