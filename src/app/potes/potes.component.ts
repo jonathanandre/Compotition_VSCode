@@ -126,7 +126,7 @@ export class PotesComponent implements OnInit {
     Object.entries(value)
       .forEach(([key, val]) => this.login = val);
     if (this.login == this.auth.getUserConnect().login) {
-      this.msg = "Vous ne pouvez pas vous demander en amis"
+      this.msg = "Vous ne pouvez pas vous demander en ami"
     }
     else {
       console.log("vérification liste 2", liste);
