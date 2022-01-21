@@ -26,7 +26,7 @@ export class AncienpariComponent implements OnInit {
 
   pointsparis(){
     this.http.get('http://localhost:8087/utilisateur/informations/'+this.auth.getUserConnect().id).subscribe({
-      next: (data) => {this.pointpari=data}
+      next: (data) => {this.pointpari=data;console.log("point pari", this.pointpari)}
     })
   }
 
