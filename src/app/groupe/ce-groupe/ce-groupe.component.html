@@ -104,6 +104,14 @@
     <strong>&nbsp;&nbsp; Nouvelle compétition </strong>
 </div>
 
+
+<div>
+    <br>
+    <app-competition-groupe></app-competition-groupe>
+    <br><br>
+</div>
+
+<!-- 
 <div class="container mt-5">
     <table class="table">
         <thead class="thead-dark">
@@ -128,16 +136,17 @@
                 <th>{{c.format}}</th>
                 <th>{{c.description}}</th>
                 <th>{{c.pari}}</th>
-                <th *ngIf="participe(c)==false">
+                <th>bu</th>
+                <th *ngIf="participation">
                     <button class="btn btn-primary" (click)="rejoindreCompet(c)">
                         Rejoindre
                     </button>
                 </th>
-                <th *ngIf="participe(c)==true">
+                 <th *ngIf="participe(c)==true">
                     <button class="btn btn-primary" (click)="quitterCompet(c)">
                         Se désinscrire
                     </button>
-                </th>
+                </th> 
                 <th *ngIf="isOrganisateur(c)">
                     <button class="btn btn-primary" (click)="supprimerCompet(c)">
                         Annuler la compétition
@@ -148,4 +157,4 @@
                 </th>
             </tr>
         </tbody>
-    </table>
+    </table> -->

@@ -32,10 +32,11 @@ import { AncienpariComponent } from './pageaccueilpari/ancienpari/ancienpari.com
 import { CreerCompetitionComponent } from './groupe/ce-groupe/creer-competition/creer-competition.component';
 import { ChoixfavoriComponent } from './pageaccueilpari/pari/choixfavori/choixfavori.component';
 import { RedirectionComponent } from './pageaccueilpari/pari/choixfavori/redirection/redirection.component';
-import { DatePipe } from '@angular/common'
-
+import { DatePipe } from '@angular/common';
 import { ClassementComponent } from './classement/classement.component';
 import { InviteGroupeComponent } from './groupe/ce-groupe/invite-groupe/invite-groupe.component';
+import { CompetitionGroupeComponent } from './groupe/ce-groupe/competition-groupe/competition-groupe.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -63,10 +64,10 @@ import { InviteGroupeComponent } from './groupe/ce-groupe/invite-groupe/invite-g
     AncienpariComponent,
     ChoixfavoriComponent,
     RedirectionComponent,
-    
     ClassementComponent,
     CreerCompetitionComponent,
     InviteGroupeComponent,
+    CompetitionGroupeComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +77,8 @@ import { InviteGroupeComponent } from './groupe/ce-groupe/invite-groupe/invite-g
     FormsModule,
     HttpClientModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatExpansionModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

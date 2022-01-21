@@ -1,15 +1,15 @@
-<main style="height: 470px;background-color: rgb(255, 248, 146);">
+<main style="height: 500px;background-color: rgb(255, 248, 146);">
     <h2 style="text-align: center;">Classement général des parieurs</h2>
     <br>
     <div>
         <table style="text-align: center; width: 90%;margin: auto;">
             <thead style="background-color: rgb(140, 248, 130);" class="thead-">
-                
+
                 <tr>
                     <th width="30%">Rang</th>
                     <th width="40%">Pseudo</th>
                     <th width="30%">Points pari</th>
-                    
+
                 </tr>
             </thead>
             <tbody style="background-color: rgb(197, 255, 191);">
@@ -19,17 +19,18 @@
                     <td *ngIf="nouse(c)">{{c.pointsPari}}</td>
 
                     <td style="background-color: coral;" *ngIf="use(c)">{{index+1}}</td>
-                    <td style="background-color: coral;"*ngIf="use(c)">{{c.login}}</td>
-                    <td style="background-color: coral;"*ngIf="use(c)">{{c.pointsPari}}</td>
-    
-    
+                    <td style="background-color: coral;" *ngIf="use(c)">{{c.login}}</td>
+                    <td style="background-color: coral;" *ngIf="use(c)">{{c.pointsPari}}</td>
+
+
                 </tr>
             </tbody>
         </table>
     </div>
     <br>
     <div style="text-align: center;margin: auto">
-        <a style=" color: rgb(7, 106, 139);" (click)="revenir()">revenir à la page
+        <a *ngIf="connect()" style=" color: rgb(7, 106, 139);" (click)="revenir()">revenir à la page
             principale des paris</a>
+        
     </div>
 </main>
