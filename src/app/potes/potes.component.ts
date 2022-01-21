@@ -146,7 +146,7 @@ export class PotesComponent implements OnInit {
             this.utilisateur = data; console.log("utilisateur",this.utilisateur);  
             
             if (this.utilisateur == null) {
-              this.msg = "le login n'existe pas, essaie encore";
+              this.msg = "le login n'existe pas";
             }
             else{
               this.envoyerinvitation_suite(this.utilisateur.id);
