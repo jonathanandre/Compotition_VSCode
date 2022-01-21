@@ -10,6 +10,7 @@ import { InviteGroupeComponent } from './invite-groupe/invite-groupe.component';
 import { ModifierGroupeComponent } from './modifier-groupe/modifier-groupe.component';
 import { SupprimerMembreComponent } from './supprimer-membre/supprimer-membre.component';
 
+
 @Component({
   selector: 'app-ce-groupe',
   templateUrl: './ce-groupe.component.html',
@@ -119,17 +120,20 @@ export class CeGroupeComponent implements OnInit {
     })
   }
 
-  participe(c: any) {
-      // this.http.get('http://localhost:8087/competition/' + c.id + '/participation/utilisateur/boolean/' + this.user.login).subscribe({
-      //   next: (data)=> {console.log("participe ou participe pas : ",data); this.participation = data ;},
-      //   error: (err)=> {console.log(err)}
-      // })
-    console.log("participation", this.participation);
-    if (this.participation==false) {
-      return false;
-    } else {
-      return true;
-    }
+  participe(c: any): boolean {
+         this.http.get('http://localhost:8087/competition/' + c.id + '/participation/utilisateur/boolean/' + this.user.login).subscribe({
+           next: (data)=> {console.log("participe ou participe pas : ",data); this.participation = data ;},
+           error: (err)=> {console.log(err)} 
+         })
+         console.log("return participation : ", this.participation);
+         return this.participation;
+
+    // console.log("participation", this.participation);
+    // if (this.participation==false) {
+    //   return false;
+    // } else {
+    //   return true;
+    // }
   }
 
   quitterCompet(c: any) {
