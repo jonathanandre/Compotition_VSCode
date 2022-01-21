@@ -21,8 +21,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .titre{
     font-size: 50px;
     line-height: 50px ;
-    margin-top: 25px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .description{
@@ -44,11 +44,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-size: 25px;
     margin-top: 15px;
 }
+.row{
+    width: 100%;
+}
 
 .pagemin{
     min-height:92%;
 }
 
-.row{
-    width: 100%;
+.corps{
+    position: relative;
+    z-index: 2;
+    opacity: 1;
 }
+
+.img-bg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    z-index: 1;
+}
+
