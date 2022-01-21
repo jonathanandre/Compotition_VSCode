@@ -1,40 +1,44 @@
-<div class="row">
-  <div class="col-sm-6 text-center mt-3">
-    <strong>Créer un nouveau groupe &nbsp;&nbsp;</strong>
-    <button mat-fab color="accent" (click)="callNouveauGroupe()">
-      <mat-icon>group_add</mat-icon>
-    </button>
-  </div>
-  <div class="col-sm-6 text-center mt-4">
-    <strong>Invitation(s) reçue(s) &nbsp;&nbsp;</strong>
-    <button mat-flat-button color="accent" (click)="callInvitationRecu()">
-      {{nbrInvitRecu}}
-      <mat-icon>email</mat-icon>
-    </button>
-  </div>
-</div>
 
-<div class="container mt-5">
-  <table class="table">
-      <thead class="thead-dark">
-          <tr>
-              <th>ID</th>
-              <th></th>
-              <th>Nom</th>
-              <th>Description</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let g of groupes">
-              <td>{{ g.groupe.id }}</td>
-              <td>
-                <button mat-raised-button color="accent" (click)="sendGroupe(g.groupe)" routerLink="ce-groupe">
-                  Voir
-                </button>
-              </td>
-              <td><strong>{{ g.groupe.nom }}</strong></td>
-              <td>{{ g.groupe.description }}</td>
-          </tr>
-      </tbody>
-  </table>
+<img class="img-bg" src="assets/images/groupe.jpg"/>
+<div class="corps">
+  <div class="row">
+    <div class="col-sm-6 text-center mt-3">
+      <strong>Créer un nouveau groupe &nbsp;&nbsp;</strong>
+      <button mat-fab color="accent" (click)="callNouveauGroupe()">
+        <mat-icon>group_add</mat-icon>
+      </button>
+    </div>
+    <div class="col-sm-6 text-center mt-4">
+      <strong>Invitation(s) reçue(s) &nbsp;&nbsp;</strong>
+      <button mat-flat-button color="accent" (click)="callInvitationRecu()">
+        {{nbrInvitRecu}}
+        <mat-icon>email</mat-icon>
+      </button>
+    </div>
+  </div>
+  
+  <div class="container mt-5">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th></th>
+                <th>Nom</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let g of groupes">
+                <td>{{ g.groupe.id }}</td>
+                <td>
+                  <button mat-raised-button color="accent" (click)="sendGroupe(g.groupe)" routerLink="ce-groupe">
+                    Voir
+                  </button>
+                </td>
+                <td><strong>{{ g.groupe.nom }}</strong></td>
+                <td>{{ g.groupe.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
 </div>
