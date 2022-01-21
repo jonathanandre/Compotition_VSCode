@@ -12,8 +12,10 @@ export class CompetitionGroupeComponent implements OnInit {
   user: any
   competitions: any
   participation: any
-  msg: any
+  msgSupCompet: any
   msgtrue: any
+  msgQuitterCompet: any
+  msgRejoindreCompet: any
   constructor(private http: HttpClient, private auth : AuthService) { }
 
   ngOnInit(): void {
@@ -48,22 +50,41 @@ export class CompetitionGroupeComponent implements OnInit {
 }
 
 rejoindreCompet(c: any) {
-  let participe = {utilisateur: this.user, competition: c};
-  this.http.post('http://localhost:8087/competition/participation/ajouter', participe).subscribe({
+  if(c.limiteInscription==null) {
+    let participe = {utilisateur: this.user, competition: c};
+    this.http.post('http://localhost:8087/competition/participation/ajouter', participe).subscribe({
     next: (data)=> {console.log('competition rejoint', data);
     this.ngOnInit(); 
     },
     error: (err)=> {console.log(err)}
   })
+  } else {
+    if(Date.now()<new Date(c.limiteInscription).getTime()){
+      let participe = {utilisateur: this.user, competition: c};
+      this.http.post('http://localhost:8087/competition/participation/ajouter', participe).subscribe({
+      next: (data)=> {console.log('competition rejoint', data);
+      this.ngOnInit(); 
+      },
+      error: (err)=> {console.log(err)}
+    })
+    } else {
+      this.msgRejoindreCompet = "impossible de rejoindre après la date limite d'inscription";
+    }
+  }
 }
 
 quitterCompet(c: any) {
-  this.http.delete('http://localhost:8087/competition/' + c.id + '/participation/supprimer/' + this.user.login).subscribe({
+  if(Date.now()<new Date(c.dateDebut).getTime()){
+    this.http.delete('http://localhost:8087/competition/' + c.id + '/participation/supprimer/' + this.user.login).subscribe({
     next: (data)=> {console.log('participation a la compet supprimee', data); 
     this.ngOnInit();
   },
     error: (err)=> {console.log(err)}
   })
+  } else {
+    this.msgQuitterCompet = "impossible après le début de la compétition";
+  }
+  
 }
 
 isOrganisateur(c: any) {
@@ -75,8 +96,6 @@ isOrganisateur(c: any) {
 }
 
 supprimerCompet(c: any) {
-  //this.date = new Date();
-  // console.log('test date d aujourdhui : ', this.date);
   console.log('test date d aujourdhui en ms : ', Date.now())
   console.log('test dateDebut en ms : ', new Date(c.dateDebut).getTime())
   if(Date.now()<new Date(c.dateDebut).getTime()){
@@ -85,7 +104,7 @@ supprimerCompet(c: any) {
       error: (err)=> {console.log(err)}
     })
   } else {
-    this.msg = "suppression impossible après le début de la compétition";
+    this.msgSupCompet = "suppression impossible après le début de la compétition";
     this.msgtrue = c.id;
   }
 }

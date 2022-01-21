@@ -6,7 +6,7 @@
                     {{ c.description }}
                 </mat-panel-title>
                 <mat-panel-description>
-                    {{ c.dateDebut | date: 'd/MM/yyyy hh:m:s' }}
+                    {{ c.dateDebut | date: 'd/MM/yyyy hh:mm' }}
                 </mat-panel-description>
             </mat-expansion-panel-header>
             
@@ -27,11 +27,11 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{c.activite}}</td>
-                <th>{{c.dateDebut | date: 'd/M/y'}}</th>
-                <th>{{c.dateDebut | date: 'd/M/y'}}</th>
+                <th>{{c.activite}}</th>
+                <th>{{c.dateDebut | date: 'd/MM/yyyy hh:mm'}}</th>
+                <th>{{c.dateDebut | date: 'd/MM/yyyy hh:mm'}}</th>
                 <th>{{c.lieu}}</th>
-                <th>{{c.limiteInscription | date: 'd/M/y'}}</th>
+                <th>{{c.limiteInscription | date: 'd/MM/yyyy hh:mm'}}</th>
                 <th>{{c.format}}</th>
                 <th>{{c.description}}</th>
                 <th>{{c.pari}}</th>
@@ -39,20 +39,25 @@
                     <button *ngIf="!participation" class="btn btn-primary" (click)="rejoindreCompet(c)">
                         Rejoindre
                     </button>
-                </th>
-                 <th>
+                    <div class="text-danger"> 
+                        {{ msgRejoindreCompet }}
+                    </div>
                     <button *ngIf="participation" class="btn btn-danger" (click)="quitterCompet(c)">
                         Se désinscrire
                     </button>
-                </th> 
-                <th *ngIf="isOrganisateur(c)">
-                    <button class="btn btn-danger" (click)="supprimerCompet(c)">
+                    <div class="text-danger"> 
+                        {{ msgQuitterCompet }}
+                    </div>
+                    <button *ngIf="isOrganisateur(c)" class="btn btn-danger" (click)="supprimerCompet(c)">
                         Annuler la compétition
                     </button>
                     <div *ngIf="c.id==msgtrue" class="text-danger"> 
-                    {{ msg }}
+                    {{ msgSupCompet }}
                     </div>
-                </th>
+                </th> 
+                
+                
+                
             </tr>
         </tbody>
     </table> 
