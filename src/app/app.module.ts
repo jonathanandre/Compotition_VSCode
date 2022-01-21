@@ -37,6 +37,7 @@ import { ClassementComponent } from './classement/classement.component';
 import { InviteGroupeComponent } from './groupe/ce-groupe/invite-groupe/invite-groupe.component';
 import { CompetitionGroupeComponent } from './groupe/ce-groupe/competition-groupe/competition-groupe.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { AccueilComponent } from './accueil/accueil.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     CreerCompetitionComponent,
     InviteGroupeComponent,
     CompetitionGroupeComponent,
+    AccueilComponent,
   ],
   imports: [
     BrowserModule,
