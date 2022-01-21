@@ -1,106 +1,110 @@
-<br>
-<div style="margin-left: auto;" class="row">
-    <div style="text-align: center; margin-left: 1%; " class="table col-sm-3 ">
-        <table style="text-align: center; width: 100%;">
-            <thead style="background-color: rgb(140, 248, 130);" class="thead-">
-                <tr>
 
-
-                    <th>Mes potes</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let p of potes">
-                    <td *ngIf="bool(p.envoyeur)">
-                        {{p.envoyeur.login}}
-                        <button class="btn btn-link" (click)="callMsgPote(p)">
-                            <mat-icon> message</mat-icon>
-                        </button>
-                        <button (click)="virer(p.envoyeur.login,p.receveur.login)" style="margin-left: 4px; color:red;">x</button>
-
-                    </td>
-
-                    <td *ngIf="bool(p.receveur)">
-                        {{ p.receveur.login }}
-                        <button class="btn btn-link" (click)="callMsgPote(p)">
-                            <mat-icon> message</mat-icon>
-                        </button>
-                        <button (click)="virer(p.envoyeur.login,p.receveur.login)" style="margin-left: 4px; color:red;">x</button>
-                      
-                    </td>
-
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div style="text-align: center; margin-left: 1%; " class="table col-sm-3 ">
-        <table style="text-align: center; width: 100%;">
-            <thead style="background-color: rgb(235, 220, 10);" class="thead-">
-                <tr>
-
-
-                    <th>Répondre</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let p of potesrecus">
-                    <td *ngIf="bool(p.envoyeur)">{{p.envoyeur.login}}<button (click)="accepter(p.envoyeur.login)" style="margin-left: 4px; color: lime;">Accepter</button><button (click)="refuser(p.envoyeur.login)" style="margin-left: 4px; color:red;">Refuser</button></td>
-
-                    <td *ngIf="bool(p.receveur)">{{p.receveur.login}}<button (click)="accepter(p.envoyeur.login)" style="margin-left: 4px; color: lime;">Accepter</button><button (click)="refuser(p.envoyeur.login)" style="margin-left: 4px; color:red;">Refuser</button></td>
-
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div style="text-align: center; margin-left: 1%; " class="table col-sm-3 ">
-        <table style="text-align: center; width: 100%;">
-            <thead style="background-color: rgb(159, 248, 226);" class="thead-">
-                <tr>
-
-
-                    <th>En attente</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let p of potesenvoyes">
-                    <td *ngIf="bool(p.envoyeur)">{{p.envoyeur.login}}  <button (click)="virer(p.envoyeur.login,p.receveur.login)" style="margin-left: 4px; color:red;">x</button></td>
-
-                    <td *ngIf="bool(p.receveur)">{{ p.receveur.login }}  <button (click)="virer(p.envoyeur.login,p.receveur.login)" style="margin-left: 4px; color:red;">x</button></td>
-
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-
-    <div style="text-align: center; margin-left: 1%;" class="table col-sm-2 ">
-        <br>
-        <div style="text-align: center; margin-left: 1%;background-color:thistle ;">
-
-
-            <form style="text-align: center;" #invitation="ngForm" (ngSubmit)="envoyerinvitation(invitation.value)"
-                class="text-center  p-6">
-
-                <br>
-                <p class="h6 mb-4">Demande d'ami</p>
-
-                
-                <input style="width: 80%; margin: auto;" type="text" name="entree" class="form-control mb-4"
-                    placeholder="entrer login" ngModel="">
-
-               
-                <button style="width: 80%; margin: auto;" class="btn btn-info btn-block my-4"
-                    type="submit">envoyer</button>
-
-            </form>
-            <p style="color: tomato;"> {{ msg }}</p>
-           
+<img class="img-bg" src="assets/images/team.jpg"/>
+<div class="corps">
+    <br>
+    <div style="margin-left: auto;" class="row">
+        <div style="text-align: center; margin-left: 1%; " class="table col-sm-3 ">
+            <table style="text-align: center; width: 100%;">
+                <thead style="background-color: rgb(140, 248, 130);" class="thead-">
+                    <tr>
+    
+    
+                        <th>Mes potes</th>
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of potes">
+                        <td *ngIf="bool(p.envoyeur)">
+                            {{p.envoyeur.login}}
+                            <button class="btn btn-link" (click)="callMsgPote(p)">
+                                <mat-icon> message</mat-icon>
+                            </button>
+                            <button (click)="virer(p.envoyeur.login,p.receveur.login)" style="margin-left: 4px; color:red;">x</button>
+    
+                        </td>
+    
+                        <td *ngIf="bool(p.receveur)">
+                            {{ p.receveur.login }}
+                            <button class="btn btn-link" (click)="callMsgPote(p)">
+                                <mat-icon> message</mat-icon>
+                            </button>
+                            <button (click)="virer(p.envoyeur.login,p.receveur.login)" style="margin-left: 4px; color:red;">x</button>
+                          
+                        </td>
+    
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <div style="text-align: center; margin-left: 1%; " class="table col-sm-3 ">
+            <table style="text-align: center; width: 100%;">
+                <thead style="background-color: rgb(235, 220, 10);" class="thead-">
+                    <tr>
+    
+    
+                        <th>Répondre</th>
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of potesrecus">
+                        <td *ngIf="bool(p.envoyeur)">{{p.envoyeur.login}}<button (click)="accepter(p.envoyeur.login)" style="margin-left: 4px; color: lime;">Accepter</button><button (click)="refuser(p.envoyeur.login)" style="margin-left: 4px; color:red;">Refuser</button></td>
+    
+                        <td *ngIf="bool(p.receveur)">{{p.receveur.login}}<button (click)="accepter(p.envoyeur.login)" style="margin-left: 4px; color: lime;">Accepter</button><button (click)="refuser(p.envoyeur.login)" style="margin-left: 4px; color:red;">Refuser</button></td>
+    
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <div style="text-align: center; margin-left: 1%; " class="table col-sm-3 ">
+            <table style="text-align: center; width: 100%;">
+                <thead style="background-color: rgb(159, 248, 226);" class="thead-">
+                    <tr>
+    
+    
+                        <th>En attente</th>
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of potesenvoyes">
+                        <td *ngIf="bool(p.envoyeur)">{{p.envoyeur.login}}  <button (click)="virer(p.envoyeur.login,p.receveur.login)" style="margin-left: 4px; color:red;">x</button></td>
+    
+                        <td *ngIf="bool(p.receveur)">{{ p.receveur.login }}  <button (click)="virer(p.envoyeur.login,p.receveur.login)" style="margin-left: 4px; color:red;">x</button></td>
+    
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+    
+        <div style="text-align: center; margin-left: 1%;" class="table col-sm-2 ">
             <br>
+            <div style="text-align: center; margin-left: 1%;background-color:thistle ;">
+    
+    
+                <form style="text-align: center;" #invitation="ngForm" (ngSubmit)="envoyerinvitation(invitation.value)"
+                    class="text-center  p-6">
+    
+                    <br>
+                    <p class="h6 mb-4">Demande d'ami</p>
+    
+                    
+                    <input style="width: 80%; margin: auto;" type="text" name="entree" class="form-control mb-4"
+                        placeholder="entrer login" ngModel="">
+    
+                   
+                    <button style="width: 80%; margin: auto;" class="btn btn-info btn-block my-4"
+                        type="submit">envoyer</button>
+    
+                </form>
+                <p style="color: tomato;"> {{ msg }}</p>
+               
+                <br>
+            </div>
         </div>
     </div>
 </div>

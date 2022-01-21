@@ -1,32 +1,35 @@
 
-<table class="table text-center">
-    <thead class="thead-dark">
-        <tr>
-            <th width="30%">Position</th>
-            <th width="40%">Pseudo</th>
-            <th width="30%">Score global</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let cg of classementGlobal; let index = index">
-            <td>
-                <div *ngIf=" index+1 == 1 "><img src="assets/images/medal-gold.png" height="100px" width="100px" /></div>
-                <div *ngIf=" index+1 == 2 "><img src="assets/images/medal-silver.png" height="70px" width="70px" /></div>
-                <div *ngIf=" index+1 == 3 "><img src="assets/images/medal-bronze.png" height="50px" width="50px" /></div>
-                <div *ngIf=" index+1 > 3 ">{{index+1}}<sup>ème</sup> </div>
-            </td>
-            <td><strong>
-                <div *ngIf=" index+1 == 1 " class="first">{{ cg.login }}</div>
-                <div *ngIf=" index+1 == 2 " class="second">{{ cg.login }}</div>
-                <div *ngIf=" index+1 == 3 " class="third">{{ cg.login }}</div>
-                <div *ngIf=" index+1 > 3 ">{{ cg.login }}</div>
-            </strong></td>
-            <td>
-                <div *ngIf=" index+1 == 1 " class="first">{{ cg.pointsGlobal }}</div>
-                <div *ngIf=" index+1 == 2 " class="second">{{ cg.pointsGlobal }}</div>
-                <div *ngIf=" index+1 == 3 " class="third">{{ cg.pointsGlobal }}</div>
-                <div *ngIf=" index+1 > 3 ">{{ cg.pointsGlobal }}</div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<img class="img-bg" src="assets/images/coupes.jpg"/>
+<div class="corps">
+    <table class="table text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th width="30%">Position</th>
+                <th width="40%">Pseudo</th>
+                <th width="30%">Score global</th>
+            </tr>
+        </thead>
+        <tbody class="classement">
+            <tr *ngFor="let cg of classementGlobal; let index = index">
+                <td>
+                    <div *ngIf=" index+1 == 1 "><img src="assets/images/medal-gold.png" height="100px" width="100px" /></div>
+                    <div *ngIf=" index+1 == 2 "><img src="assets/images/medal-silver.png" height="70px" width="70px" /></div>
+                    <div *ngIf=" index+1 == 3 "><img src="assets/images/medal-bronze.png" height="50px" width="50px" /></div>
+                    <div *ngIf=" index+1 > 3 ">{{index+1}}<sup>ème</sup> </div>
+                </td>
+                <td><strong>
+                    <div *ngIf=" index+1 == 1 " class="first">{{ cg.login }}</div>
+                    <div *ngIf=" index+1 == 2 " class="second">{{ cg.login }}</div>
+                    <div *ngIf=" index+1 == 3 " class="third">{{ cg.login }}</div>
+                    <div *ngIf=" index+1 > 3 ">{{ cg.login }}</div>
+                </strong></td>
+                <td>
+                    <div *ngIf=" index+1 == 1 " class="first">{{ cg.pointsGlobal }}</div>
+                    <div *ngIf=" index+1 == 2 " class="second">{{ cg.pointsGlobal }}</div>
+                    <div *ngIf=" index+1 == 3 " class="third">{{ cg.pointsGlobal }}</div>
+                    <div *ngIf=" index+1 > 3 ">{{ cg.pointsGlobal }}</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

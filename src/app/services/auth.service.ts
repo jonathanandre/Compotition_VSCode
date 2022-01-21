@@ -58,7 +58,7 @@ export class AuthService {
 
   deconnexion(){
     localStorage.clear();
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('accueil');
   }
 
   setAmitieLocalStorage(a: any) {

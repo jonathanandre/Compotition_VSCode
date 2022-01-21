@@ -6,6 +6,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+tbody{
+    background-color: #ffffffbb;
+}
+
+.classement{
+    background-color: #ffffff22;
+}
+
 .compotition{
     color: white;
     font-size: 50px;
@@ -58,9 +66,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     opacity: 1;
 }
 
+.navmenu{
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+}
+
 .img-bg{
     position: fixed;
-    width: 100%;
+    top: 0px;
+    width: 98.75%;
     height: 100%;
     opacity: 0.5;
     z-index: 1;

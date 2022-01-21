@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from '../services/auth.service';
-
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-connexion',
@@ -13,7 +13,7 @@ export class ConnexionComponent implements OnInit {
   utilisateur: any;
   msg: any;
 
-  constructor(private dialogRef: MatDialogRef<ConnexionComponent>, private httpClient: HttpClient, private auth: AuthService) { }
+  constructor(private router: Router,private dialogRef: MatDialogRef<ConnexionComponent>, private httpClient: HttpClient, private auth: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +27,7 @@ export class ConnexionComponent implements OnInit {
         } else {
           this.auth.setUserLocalStorage(this.utilisateur);
           this.dialogRef.close();
+          this.router.navigateByUrl("accueil");
          
         }
         },
