@@ -18,6 +18,7 @@ import { ClassementComponent } from './classement/classement.component';
 import { AccueilComponent } from './accueil/accueil.component';
 
 
+
 const routes: Routes = [
   {path: 'tournoi', component: TournoiComponent},
   {path: 'mon-profil', component: MonProfilComponent},
@@ -35,6 +36,7 @@ const routes: Routes = [
   
   {path: 'classement', component:  ClassementComponent},
   {path: 'accueil', component:  AccueilComponent},
+ 
 
 
 

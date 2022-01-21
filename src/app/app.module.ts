@@ -69,7 +69,7 @@ import { AccueilComponent } from './accueil/accueil.component';
     CreerCompetitionComponent,
     InviteGroupeComponent,
     CompetitionGroupeComponent,
-    AccueilComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,
