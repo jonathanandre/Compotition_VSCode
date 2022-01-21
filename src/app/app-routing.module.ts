@@ -15,6 +15,7 @@ import { AncienpariComponent } from './pageaccueilpari/ancienpari/ancienpari.com
 import { RedirectionComponent } from './pageaccueilpari/pari/choixfavori/redirection/redirection.component';
 
 import { ClassementComponent } from './classement/classement.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path: 'redirection', component:  RedirectionComponent},
   
   {path: 'classement', component:  ClassementComponent},
+  {path: 'accueil', component:  AccueilComponent},
 
 
 
