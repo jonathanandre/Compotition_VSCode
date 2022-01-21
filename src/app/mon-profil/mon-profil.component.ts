@@ -20,7 +20,7 @@ export class MonProfilComponent implements OnInit {
   callModifProfil() {
     const myDialog = this.dialog.open(ModifProfilComponent);
     myDialog.afterClosed().subscribe(result => {
-      this.reloadComponent();
+      this.reloadCurrentRoute();
     });
   }
 
@@ -29,6 +29,14 @@ export class MonProfilComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate([currentUrl]);
+  }
+
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+        console.log(currentUrl);
+    });
   }
 
 }
