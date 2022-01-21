@@ -3,10 +3,10 @@
         <mat-expansion-panel *ngFor="let c of competitions" (opened)="participe(c)">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    {{ c.description }}
+                    {{ c.activite }}
                 </mat-panel-title>
                 <mat-panel-description>
-                    {{ c.dateDebut | date: 'd/MM/yyyy hh:mm' }}
+                    Début de la compétition : {{ c.dateDebut | date: 'd/MM/yyyy hh:mm' }}
                 </mat-panel-description>
             </mat-expansion-panel-header>
             
