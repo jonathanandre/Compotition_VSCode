@@ -24,10 +24,16 @@ export class ClassementgeneralpariComponent implements OnInit {
   }
 
   use(value:any){
+    if(this.auth.getUserConnect()==null){
+      return false
+    }
     return value.id==this.auth.getUserConnect().id
   }
 
   nouse(value:any){
+    if(this.auth.getUserConnect()==null){
+      return true
+    }
     return  (value.id==this.auth.getUserConnect().id)==false
   }
 
@@ -36,6 +42,10 @@ export class ClassementgeneralpariComponent implements OnInit {
     next : (data) => { this.classementGlobal = data,console.log(this.classementGlobal) },
     error : (err) => { console.log(err) }
     });
+  }
+
+  connect(){
+    return this.auth.getUserConnect()!=null
   }
 
 }

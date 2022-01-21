@@ -10,16 +10,24 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AncienpariComponent implements OnInit {
   voteparis: any;
+  pointpari:any;
 
   constructor(private http: HttpClient,private auth: AuthService,private router: Router) { }
 
   ngOnInit(): void {
+    this.pointsparis();
     this.competitionspariees();
   }
 
   revenir(){
     this.router.navigateByUrl("pageaccueilpari");
 
+  }
+
+  pointsparis(){
+    this.http.get('http://localhost:8087/utilisateur/informations/'+this.auth.getUserConnect().id).subscribe({
+      next: (data) => {this.pointpari=data;console.log("point pari", this.pointpari)}
+    })
   }
 
   competitionspariees(){
