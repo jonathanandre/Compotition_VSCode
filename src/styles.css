@@ -44,3 +44,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-size: 25px;
     margin-top: 15px;
 }
+
+.pagemin{
+    min-height:92%;
+}
+
+.row{
+    width: 100%;
+}

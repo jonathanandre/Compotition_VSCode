@@ -10,6 +10,9 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class InscriptionComponent implements OnInit {
 
   user: any;
+  mdpDiff: any = false
+  emailDiff: boolean = false
+
   constructor(private http: HttpClient ,private dialogRef: MatDialogRef<InscriptionComponent>) { }
 
   ngOnInit(): void {
@@ -18,20 +21,22 @@ export class InscriptionComponent implements OnInit {
 
   inscription(utilisateur : any) {
     let user = {login : utilisateur.login, mdp : utilisateur.mdp, nom : utilisateur.nom, prenom : utilisateur.prenom, email : utilisateur.email, dateNaissance : utilisateur.naissance, admin : false, pointsGlobal : null, pointsPari : null};
-    /*
-    if(utilisateur.mdp != utilisateur.mdpConfirme){
-
-    }
     
-    if(utilisateur.email != utilisateur.emailConfirme){
-      
+    if(utilisateur.mdp == utilisateur.mdpConfirme && utilisateur.email == utilisateur.emailConfirme){
+      this.http.post('http://localhost:8087/utilisateur/inscription', user).subscribe({
+        next : (data)=> {console.log(data); this.dialogRef.close()},
+        error : (err)=> {console.log(err)}
+      })
+    } 
+
+    if (utilisateur.mdp != utilisateur.mdpConfirme){
+      this.mdpDiff = true
     }
-    */
-   
-    this.http.post('http://localhost:8087/utilisateur/inscription', user).subscribe({
-      next : (data)=> {console.log(data); this.dialogRef.close()},
-      error : (err)=> {console.log(err)}
-    })
+
+    if (utilisateur.email != utilisateur.emailConfirme){
+      this.emailDiff = true
+    }
+
   }
 
 }

@@ -54,6 +54,14 @@ export class ClassementamipariComponent implements OnInit {
     this.classementAmi=liste2
   }
 
+  use(value:any){
+    return value.id==this.auth.getUserConnect().id
+  }
+
+  nouse(value:any){
+    return  (value.id==this.auth.getUserConnect().id)==false
+  }
+
 
   getAmisFromUser(value: any) {
     this.http.get('http://localhost:8087/amitie/' + this.auth.getUserConnect().id).subscribe({
